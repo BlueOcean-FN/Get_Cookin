@@ -3,8 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './client/src/components/login.jsx';
-import Dashboard from './client/src/components/dashboard.jsx';
+import Login from './src/components/login.jsx';
+import Dashboard from './src/components/dashboard.jsx';
 
 const Stack = createNativeStackNavigator();
 
