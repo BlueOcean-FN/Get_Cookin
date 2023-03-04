@@ -1,8 +1,9 @@
 import React from 'react';
+import { HiOutlineSearch } from 'react-icons/hi';
 
 const SearchBar = (props) => {
     return (
-        <p>I'm the search bar!</p>
+        <p><HiOutlineSearch />I'm the search bar!</p>
     )
 }
 
