@@ -13,10 +13,13 @@ app.get('/', (req, res) => {
 
 app.get('/&q=*', (req, res) => {
   console.log(process.env.API_URL, process.env)
-  axios.get(process.env.API_URL + req.url.slice(1))
-  .then(res => console.log(res));
+  // axios.get(process.env.API_URL + req.url.slice(1))
+  // .then(res => console.log(res));
 })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+//test data = = = = = = = = = = = = = = = = = = = = =
+

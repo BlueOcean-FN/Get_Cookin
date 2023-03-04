@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './Card.css';
 
-const Card = () => {
+const Card = ({ data }) => {
+
+  const [card, setCard] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    if (data) {
+      setCard(data);
+    }
+  }, [data])
 
   return (
-    <div className="CardPage">
-      This is the Card.
+    <div className="Card">
+      {card && 'This is the Card.'}
     </div>
   )
 
