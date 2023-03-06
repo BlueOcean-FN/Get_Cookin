@@ -30,7 +30,7 @@ const Filters = ({filters, setFilters}) => {
                 filter={filter}
                 removeFilter={removeFilter} />
       ))}
-      <form onSubmit={addFilter}>
+      <form onSubmit={addFilter} className="filter-form">
         <input value={newFilter}
                onChange={handleTyping}
                placeholder="Add a filter..." />
