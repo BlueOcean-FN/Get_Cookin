@@ -1,0 +1,10 @@
+.filters-container {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
+import './Filter.css';
 
-const SearchBar = (props) => {
-    return (
-        <p>I'm the filterr!</p>
-    )
+const Filter = ({filter, removeFilter}) => {
+  return (
+    <span className="filter" onClick={removeFilter}>{filter}</span>
+  )
 }
 
-export default SearchBar;
+export default Filter;
