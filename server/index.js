@@ -7,10 +7,6 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
 app.get('/&q=*', (req, res) => {
   console.log(process.env.API_URL, process.env)
   // axios.get(process.env.API_URL + req.url.slice(1))

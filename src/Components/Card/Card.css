@@ -40,9 +40,23 @@ ul {
   padding: 5px;
 }
 
+.image-container.compressed {
+  width: 30%;
+}
+
+.image-container.expanded {
+  width: 50%;
+}
+
+.image-container img {
+  width: 100%;
+}
+
 .middle-bar {
+  align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   padding-left: 5%;
 }
 
