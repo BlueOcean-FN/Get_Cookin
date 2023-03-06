@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './Filter.css';
 
-const SearchBar = ({filters, setFilters}) => {
-
+const Filter = ({filter, removeFilter}) => {
   return (
-    <p>I'm the filterr!</p>
+    <span className="filter" onClick={removeFilter}>{filter}</span>
   )
 }
 
-export default SearchBar;
+export default Filter;

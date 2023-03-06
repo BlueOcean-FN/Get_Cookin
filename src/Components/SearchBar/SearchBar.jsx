@@ -13,7 +13,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
     }
 
     const removeIngredient = (e) => {
-        e.preventDefault();
         setIngredients(ingredients.filter(ingredient => {
             return ingredient !== e.target.textContent;
         }));
@@ -42,7 +41,7 @@ const SearchBar = ({ingredients, setIngredients}) => {
             <div className="predictive-text">
                 <p>predictive text goes here!</p>
             </div>
-        </div>s
+        </div>
     </>
 
     )

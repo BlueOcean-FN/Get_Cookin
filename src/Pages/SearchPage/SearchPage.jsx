@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './SearchPage.css';
 import SearchBar from '../../Components/SearchBar/SearchBar.jsx';
-import Filter from '../../Components/Filter/Filter.jsx';
+import Filters from '../../Components/Filters/Filters.jsx';
 import CardList from '../../Components/CardList/CardList.jsx';
 
 const SearchPage = () => {
@@ -12,8 +12,8 @@ const SearchPage = () => {
     <div className='SearchPage'>
       <SearchBar setIngredients={setIngredients}
                  ingredients={ingredients}/>
-      <Filter setFilters={setFilters}
-              filters={filters}/>
+      <Filters setFilters={setFilters}
+               filters={filters}/>
       <CardList />
     </div>
   )
