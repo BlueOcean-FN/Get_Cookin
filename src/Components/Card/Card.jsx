@@ -9,6 +9,18 @@ const Card = ({ data }) => {
   const [cardImage, setCardImage] = useState(null);
   const [expanded, setExpanded] = useState(false);
 
+  const displayItem = (prop) => {
+    let arr = [];
+    if (!expanded  || prop !== 'ingredients') for (let i = 0; i < 3 && i < card[prop].length; i++) arr.push(card[prop][i]);
+    else for (let i = 0; i < 6 && i < card[prop].length; i++) arr.push(card[prop][i]);
+    if (arr.length < card[prop].length) arr.push('...');
+    return arr;
+  }
+
+  const displayVital = () => {
+    return [`serves ${card.serveSize}`, `${card.calories/card.serveSize} kcal/s`, `takes ${card.totalTime} min`];
+  }
+
   useEffect(() => {
     if (data) {
       setCard(data);
@@ -23,15 +35,13 @@ const Card = ({ data }) => {
         <h2>{card.label}</h2>
       </div>
       <div className='middle-bar'>
-        <div className='ingredients'>
-          {/* something goes here */}
-          I am an example
-        </div>
+        <ul className='ingredients'>
+          {displayItem('ingredients').map(txt => <li>{txt}</li>)}
+        </ul>
         {!expanded &&
-        <div className='vital-data middle'>
-          {/* something goes here */}
-          I too am one
-        </div>
+        <ul className='vital-data middle'>
+          {[`serves ${card.serveSize}`, `${parseInt(card.calories/card.serveSize)} kcal/s`, `takes ${card.totalTime} min`].map(txt => <li>{txt}</li>)}
+        </ul>
         }
         <div className='image-container'>
           <img src={card.image} alt={card.label} />
@@ -39,26 +49,23 @@ const Card = ({ data }) => {
       </div>
       {expanded &&
       <div className='extra-data'>
-        <div className='vital-data extra'>
-          {/* something goes here */}
-          as am I
-        </div>
-        <div className='caution-data'>
-          {/* something goes here */}
-          and me also
-        </div>
-        <div className='diet-data'>
-          {/* something goes here */}
-          and after me
-        </div>
-        <div className='health-data'>
-          {/* something goes here */}
-          and before me
-        </div>
+        <ul className='vital-data middle'>
+          {[`serves ${card.serveSize}`, `${parseInt(card.calories/card.serveSize)} kcal/s`, `takes ${card.totalTime} min`].map(txt => <li>{txt}</li>)}
+        </ul>
+        <ul className='caution-data'>
+          {displayItem('cautions').map(txt => <li>{txt}</li>)}
+        </ul>
+        <ul className='diet-data'>
+          {displayItem('dietLabels').map(txt => <li>{txt}</li>)}
+        </ul>
+        <ul className='health-data'>
+          {displayItem('healthLabels').map(txt => <li>{txt}</li>)}
+        </ul>
       </div>
       }
       <div className='card-interactions'>
-        {expanded ? <>
+        {expanded ?
+        <>
           <button className="compress" onClick={() => setExpanded(false)}>compress</button>
           <button className="show-recipe" onClick={() => window.location.href = card.url} >show recipe</button>
         </> : <>

@@ -1,10 +1,25 @@
+ul {
+  list-style-type: none;
+}
+
 .Card {
   align-items: center;
   border: 1px solid lightgrey;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  font-size: small;
   width: 90vw;
+}
+
+.caution-data {
+  border-right: 1px solid lightgray;
+  padding: 5px;
+}
+
+.diet-data {
+  border-right: 1px solid lightgray;
+  padding: 5px;
 }
 
 .extra-data {
@@ -12,10 +27,18 @@
   flex-direction: row;
 }
 
-/* .image-container {
-  border-left: 1px solid lightgray;
-  padding: 10px;
-} */
+.health-data {
+  padding: 5px;
+}
+
+.ingredients {
+  border-right: 1px solid lightgray;
+  padding: 5px;
+}
+
+.image-container {
+  padding: 5px;
+}
 
 .middle-bar {
   display: flex;
@@ -26,4 +49,9 @@
 .recipe-name {
   border-bottom: 1px solid lightgray;
   width: 90%;
+}
+
+.vital-data {
+  border-right: 1px solid lightgray;
+  padding: 5px;
 }
