@@ -5,7 +5,10 @@ const ProfilePage = () => {
 
   return (
     <div className="ProfilePage">
-      This is the ProfilePage.
+      <div className="UserInfo">
+        <div className="UserName">Name</div>
+        <div className="UserEmail">Email</div>
+      </div>
     </div>
   )
 
