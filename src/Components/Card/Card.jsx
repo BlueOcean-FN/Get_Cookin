@@ -21,6 +21,14 @@ const Card = ({ data }) => {
     return [`serves ${card.serveSize}`, `${card.calories/card.serveSize} kcal/s`, `takes ${card.totalTime} min`];
   }
 
+  const expand = () => {
+    setExpanded(true);
+  }
+
+  const compress = () => {
+    setExpanded(false);
+  }
+
   useEffect(() => {
     if (data) {
       setCard(data);
@@ -43,7 +51,8 @@ const Card = ({ data }) => {
           {[`serves ${card.serveSize}`, `${parseInt(card.calories/card.serveSize)} kcal/s`, `takes ${card.totalTime} min`].map(txt => <li>{txt}</li>)}
         </ul>
         }
-        <div className='image-container'>
+        <div className='image-container compressed'>
+        {/* somehow swap compressed^ for expanded^ when expanded is ttue and vice-versa */}
           <img src={card.image} alt={card.label} />
         </div>
       </div>
@@ -66,10 +75,10 @@ const Card = ({ data }) => {
       <div className='card-interactions'>
         {expanded ?
         <>
-          <button className="compress" onClick={() => setExpanded(false)}>compress</button>
+          <button className="compress" onClick={compress}>compress</button>
           <button className="show-recipe" onClick={() => window.location.href = card.url} >show recipe</button>
         </> : <>
-        <button className="dropdown" onClick={() => setExpanded(true)}>dropdown</button>
+        <button className="dropdown" onClick={expand}>dropdown</button>
         </>}
       </div>
       </>
