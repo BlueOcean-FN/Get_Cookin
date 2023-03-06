@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import {FaBars, FaTimes} from 'react-icons/fa'
+import { Link } from "react-router-dom"
 import './NavBurger.css'
 
 const NavBurger = () => {
@@ -16,10 +17,10 @@ const NavBurger = () => {
             <header>
                 <h3>LOGO</h3>
                 <nav ref={navRef}>
-                    <a href="/">Home</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/search">Saved Recipes</a>
-                    <a href="/login">Sign Out</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/saved">Saved Recipes</Link>
+                    <Link to="/login">Sign Out</Link>
                     <button
                         className="nav-btn nav-close-btn"
                         onClick={showNavbar}>
