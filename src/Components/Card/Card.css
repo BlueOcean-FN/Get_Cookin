@@ -1,5 +1,29 @@
 .Card {
-  width: 90vw;
+  align-items: center;
   border: 1px solid lightgrey;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+}
+
+.extra-data {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .image-container {
+  border-left: 1px solid lightgray;
+  padding: 10px;
+} */
+
+.middle-bar {
+  display: flex;
+  flex-direction: row;
+  padding-left: 5%;
+}
+
+.recipe-name {
+  border-bottom: 1px solid lightgray;
+  width: 90%;
 }
