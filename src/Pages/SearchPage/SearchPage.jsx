@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SearchPage.css';
 import SearchBar from '../../Components/SearchBar/SearchBar.jsx';
 import Filter from '../../Components/Filter/Filter.jsx';
 import CardList from '../../Components/CardList/CardList.jsx';
 
 const SearchPage = () => {
+  const [filters, setFilters] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   return (
     <div className='SearchPage'>
-      This is the SearchPage.
-      <SearchBar />
-      <Filter />
+      <SearchBar setIngredients={setIngredients}
+                 ingredients={ingredients}/>
+      <Filter setFilters={setFilters}
+              filters={filters}/>
       <CardList />
     </div>
   )

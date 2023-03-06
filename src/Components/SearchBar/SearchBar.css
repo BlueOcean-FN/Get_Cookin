@@ -1,22 +1,31 @@
 .search-bar-container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  min-height: 15rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .search-bar {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
-  width: 80%;
-  height: 15rem;
+  /* border: 1px solid black; */
+  width: 100%;
+  min-height: 50%;
   justify-content: flex-start;
   align-content: flex-start;
+  border-bottom: 1px solid black;
+  flex-grow: 1;
 }
 
-.ingredient {
-  margin: 0px 5px;
-  border: 1px solid black;
-  border-radius: 12%;
-  padding: 0px 2px;
-  height: 2rem;
+.predictive-text {
+  min-height: 50%;
+  flex-grow: 1;
+}
+
+h1 {
+  text-align: center;
 }
