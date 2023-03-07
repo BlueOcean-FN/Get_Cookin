@@ -16,6 +16,15 @@ app.get('/&q=*', (req, res) => {
   // .then(res => console.log(res));
 })
 
+//recipe search
+app.get('/search', (req, res) => {
+  axios(`https://api.edamam.com/api/recipes/v2/?q=${req.query.q}&app_id=${process.env.RECIPE_ID}&app_key=${process.env.RECIPE_KEY}&type=public`)
+  .then(results => {
+    res.send(JSON.stringify(results.data));
+  })
+
+})
+
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
   console.log(req.query);
@@ -26,7 +35,7 @@ app.get('/ingredientdata', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`We are cookin' on port ${port}`)
 })
 
 //test data = = = = = = = = = = = = = = = = = = = = =
