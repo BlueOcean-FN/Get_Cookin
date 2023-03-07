@@ -13,28 +13,30 @@ const SearchBar = ({ingredients, setIngredients}) => {
     const [searchValue, setSearchValue] = useState('');
     const [autocomplete, setAutocomplete] = useState([]);
 
-    const autoCompleteJS = new autoComplete({
-      placeHolder: "Search for an ingredient . . .",
-      data: {
-          src: async () => {
-            try {
-              const source = await axios('http://localhost:3000/ingredientdata');
-              const data = source.data;
-              return data;
-            } catch (error) {
-              return error;
+    window.onload = () => {
+      const autoCompleteJS = new autoComplete({
+        placeHolder: "Search for an ingredient . . .",
+        data: {
+            src: async () => {
+              try {
+                const source = await axios('http://localhost:3000/ingredientdata');
+                const data = source.data;
+                return data;
+              } catch (error) {
+                return error;
+              }
             }
-          }
-      },
-      wrapper: false,
-      resultsList: false,
-      resultItem: {
-        highlight: true,
-      },
-      submit: true,
-      debounce: 1000,
-      threshold: 1,
-    });
+        },
+        wrapper: false,
+        resultsList: false,
+        resultItem: {
+          highlight: true,
+        },
+        submit: true,
+        debounce: 1000,
+        threshold: 1,
+      });
+    }
 
     const addIngredient = (e) => {
       e.preventDefault();
