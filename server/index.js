@@ -17,8 +17,10 @@ app.get('/&q=*', (req, res) => {
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
+  console.log(req.query);
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
+  // axios()
   res.send(JSON.stringify(wordData));
 })
 
