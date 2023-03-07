@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HiOutlineSearch } from 'react-icons/hi';
 import './SearchBar.css';
 import Ingredient from '../Ingredient/Ingredient';
+import PredictiveIngredient from '../PredictiveIngredient/PredictiveIngredient';
 import axios from 'axios';
 import autoComplete from "@tarekraafat/autocomplete.js";
 
@@ -10,8 +11,8 @@ import autoComplete from "@tarekraafat/autocomplete.js";
 const SearchBar = ({ingredients, setIngredients}) => {
 
     const [searchValue, setSearchValue] = useState('');
-    const [autoTimer, setAutoTimer] = useState(null);
-    // const [autocomplete, setAutocomplete] = useState([]);
+    // const [autoTimer, setAutoTimer] = useState(null);
+    const [autocomplete, setAutocomplete] = useState([]);
 
     const autoCompleteJS = new autoComplete({
       placeHolder: "Search for an ingredient . . .",
@@ -26,9 +27,18 @@ const SearchBar = ({ingredients, setIngredients}) => {
             }
           }
       },
+      wrapper: false,
+      // resultItem: {
+      //     highlight: false,
+
+      // },
+      resultsList: false,
       resultItem: {
-          highlight: true,
-      }
+        highlight: true,
+      },
+      submit: true,
+      debounce: 1000,
+      threshold: 1,
     });
 
     const addIngredient = (e) => {
@@ -45,6 +55,12 @@ const SearchBar = ({ingredients, setIngredients}) => {
 
     const handleSearch = (e) => {
         setSearchValue(e.target.value);
+    }
+
+    const predictiveClick = (e) => {
+      setIngredients([...ingredients, e.target.textContent])
+      setSearchValue('');
+      setAutocomplete([]);
     }
 
     // useEffect(() => {
@@ -64,6 +80,15 @@ const SearchBar = ({ingredients, setIngredients}) => {
     //   }, 1000))
     // },[searchValue])
 
+    useEffect(() => {
+      document.querySelector("#autoComplete").addEventListener("results", function (event) {
+        // "event.detail" carries the matching results values
+        setAutocomplete(event.detail.results);
+    });
+    }, [])
+
+
+
     return (
     <>
         <h1>Searching for Recipes!</h1>
@@ -79,13 +104,17 @@ const SearchBar = ({ingredients, setIngredients}) => {
                     <input id="autoComplete"
                            value={searchValue}
                            onChange={handleSearch}
-                           autofocus="autofocus"
-                           autocomplete="off"></input>
+                           autoFocus="autofocus"
+                           autoComplete="off"></input>
                     {/* <button type='submit'>Add Ingredient</button> */}
                 </form>
             </div>
             <div className="predictive-text">
-                <p>predictive text goes here!</p>
+                {autocomplete.map((item, index) => (
+                  <PredictiveIngredient ingredient={item.value}
+                                        handleClick={predictiveClick}
+                                        key={index}/>
+                ))}
             </div>
         </div>
     </>

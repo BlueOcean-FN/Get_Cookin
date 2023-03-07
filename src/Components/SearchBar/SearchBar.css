@@ -22,8 +22,16 @@
 }
 
 .predictive-text {
-  /* min-height: 50%; */
+  display: flex;
   flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.predictive-word {
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 15%;
+  height: 1.5rem;
 }
 
 h1 {
