@@ -1,6 +1,13 @@
+@font-face {
+	font-family: "hotpizza";
+	src: local("hotpizza"),
+	   url("./assets/hotpizza.ttf") format("truetype");
+	font-weight: bold;
+ }
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "Titillium Web", sans-serif;
+	font-family: "hotpizza", sans-serif;
 }
