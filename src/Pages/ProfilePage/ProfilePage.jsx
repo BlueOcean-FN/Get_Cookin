@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState} from "react";
+import RecentlyViewed from './RecentlyViewed.jsx';
+import DietaryRestrictions from './DietaryRestrictions.jsx';
 import './ProfilePage.css';
+
+
 
 const ProfilePage = () => {
 
@@ -11,7 +15,6 @@ const ProfilePage = () => {
       </div>
     </div>
   )
-
 }
 
 export default ProfilePage;
