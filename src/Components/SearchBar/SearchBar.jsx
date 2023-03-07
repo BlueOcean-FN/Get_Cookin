@@ -11,7 +11,6 @@ import autoComplete from "@tarekraafat/autocomplete.js";
 const SearchBar = ({ingredients, setIngredients}) => {
 
     const [searchValue, setSearchValue] = useState('');
-    // const [autoTimer, setAutoTimer] = useState(null);
     const [autocomplete, setAutocomplete] = useState([]);
 
     const autoCompleteJS = new autoComplete({
@@ -28,10 +27,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
           }
       },
       wrapper: false,
-      // resultItem: {
-      //     highlight: false,
-
-      // },
       resultsList: false,
       resultItem: {
         highlight: true,
@@ -63,23 +58,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
       setAutocomplete([]);
     }
 
-    // useEffect(() => {
-    //   window.clearTimeout(autoTimer);
-    //   if (searchValue === '') {
-    //     return;
-    //   }
-    //   setAutoTimer(setTimeout(() => {
-    //     console.log('querying server')
-    //     axios('http://localhost:3000/ingredientdata')
-    //     .then(data => {
-    //       setAutocomplete(data.data);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     })
-    //   }, 1000))
-    // },[searchValue])
-
     useEffect(() => {
       document.querySelector("#autoComplete").addEventListener("results", function (event) {
         // "event.detail" carries the matching results values
@@ -106,7 +84,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
                            onChange={handleSearch}
                            autoFocus="autofocus"
                            autoComplete="off"></input>
-                    {/* <button type='submit'>Add Ingredient</button> */}
                 </form>
             </div>
             <div className="predictive-text">

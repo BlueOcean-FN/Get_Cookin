@@ -27,12 +27,7 @@
   flex-wrap: wrap;
 }
 
-.predictive-word {
-  margin: 1rem;
-  border: 1px solid black;
-  border-radius: 15%;
-  height: 1.5rem;
-}
+
 
 h1 {
   text-align: center;
