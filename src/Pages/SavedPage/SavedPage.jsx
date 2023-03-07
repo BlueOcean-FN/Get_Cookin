@@ -1,17 +1,17 @@
 import {React, useState, useEffect} from 'react';
 import './SavedPage.css';
 import axios from "axios";
-import Card from "../../Components/Card/Card.jsx";
-import NavBurger from "../../Components/NavBurger/NavBurger.jsx";
+import ItemList from "../../Components/ItemList/ItemList.jsx";
 
 const SavedPage = ({user_id}) => {
 
 
-  const [saveList, setSaveList] = useState({});
+  const [saveList, setSaveList] = useState([{name: 'Unethical Chicken', ingredients: 'One human child, 10 gal chicken broth, bushel carrots, bushel potatoes', url: 'http://www.zaxbys.com'}, {name: 'Chicken Cordon Bleu 2', ingredients: 'One blue chicken, 1 lb mozzarella cheese, bread crumbs, parsley', url: 'http://www.kfc.com'}]);
 
   useEffect(() => {
     //get db entries for users saved recipes
-    // axios.get('/savedPage', {
+    //should return an array of objects with {name: recipe name, ingredients: stringoffouringredients}
+    // axios.get('/saved', {
     //   params: {
     //     user_id: user_id,
     //     type: 'saved'
@@ -30,18 +30,12 @@ const SavedPage = ({user_id}) => {
     if (saveList.length === 0) {
       return 'No Saved Items.'
     } else {
-      return saveList.map((entry, index) => {
-        <Card
-        key={'saveItem' + index}
-        props={entry}
-        />
-      })
+      return <ItemList title={'Saved Recipes'} data={saveList}/>
+      }
     }
-  }
 
   return (
     <>
-    <NavBurger/>
     <div className="saveListContainer">
       <div className="saveListSearchBar">
         Search Bar Here - Stretch Goal
