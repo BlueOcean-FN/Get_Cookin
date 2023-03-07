@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
+// const axios = require('axios');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
 const db = require('./database/index.js');
 //this is just for testing autocomplete
 const wordData = require('./testWords.js');
+
+const recipeSearch = require('./controllers/recipeSearch.js');
 
 app.use(express.json());
 
@@ -17,13 +19,9 @@ app.get('/&q=*', (req, res) => {
 })
 
 //recipe search
-app.get('/search', (req, res) => {
-  axios(`https://api.edamam.com/api/recipes/v2/?q=${req.query.q}&app_id=${process.env.RECIPE_ID}&app_key=${process.env.RECIPE_KEY}&type=public`)
-  .then(results => {
-    res.send(JSON.stringify(results.data));
-  })
+app.get('/search', recipeSearch);
 
-})
+app.post('/signup', )
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
