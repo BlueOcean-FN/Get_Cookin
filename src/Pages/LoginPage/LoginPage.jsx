@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./LoginPage.css";
 
 const Login = () => {
 
   return (
-    <div>
-      <h1>Get Cookin jambalaya</h1>
+    <div className="layout-form">
+      <h1 className="login-title">Get Cookin</h1>
       <form>
         <section>
           <label htmlFor="username">Username</label>
@@ -29,7 +30,7 @@ const Login = () => {
           />
         </section>
       <Link to="/search">
-        <button type="submit">Login</button>
+        <button className="submit" type="submit">Login</button>
       </Link>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
