@@ -4,6 +4,7 @@ const axios = require('axios');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
+const db = require('./database/index.js');
 //this is just for testing autocomplete
 const wordData = require('./testWords.js');
 
