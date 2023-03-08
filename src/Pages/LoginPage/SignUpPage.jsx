@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./LoginPage.css";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState(
+  const [signUpCredentials, setSignUpCredentials] = useState(
     {
       email: '',
       username: '',
@@ -15,12 +15,12 @@ const SignUp = () => {
   const textHandler = (e) => {
     const input = e.target.value;
     const field = e.target.name
-    setCredentials({...credentials, [field]: input})
+    setSignUpCredentials({...signUpCredentials, [field]: input})
   }
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/signup', credentials)
+    axios.post('http://localhost:3000/signup-user', signUpCredentials)
     .then(function (response) {
       console.log(response.data);
     })
@@ -42,7 +42,7 @@ const SignUp = () => {
             autoComplete="email"
             required
             onChange={textHandler}
-            value={credentials.email}
+            value={signUpCredentials.email}
           />
         </section>
         <section>
@@ -54,7 +54,7 @@ const SignUp = () => {
             autoComplete="username"
             required
             onChange={textHandler}
-            value={credentials.username}
+            value={signUpCredentials.username}
           />
         </section>
         <section>
@@ -66,7 +66,7 @@ const SignUp = () => {
             autoComplete="new-password"
             required
             onChange={textHandler}
-            value={credentials.password}
+            value={signUpCredentials.password}
           />
         </section>
       <Link to="/search">

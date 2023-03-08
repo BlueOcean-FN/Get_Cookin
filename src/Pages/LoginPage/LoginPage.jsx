@@ -1,22 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./LoginPage.css";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+
+import './LoginPage.css';
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const [loginCredentials, setLoginCredentials] = useState(
+    {
+      email: '',
+      password: ''
+    }
+  );
+
+  const textHandler = (e) => {
+    const input = e.target.value;
+    const field = e.target.name
+    setLoginCredentials({...loginCredentials, [field]: input})
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3000/login-user', loginCredentials)
+    .then(res => {
+      console.log(res);
+      localStorage.setItem('token', `Bearer ${res.data.token}`);
+      navigate(`/search`);
+    })
+    .catch(err => {
+      console.log(err);
+        // display err code (console.log for now)
+        // or maybe redirect to signup page??
+    })
+  }
 
   return (
     <div className="layout-form">
       <h1 className="login-title">Get Cookin</h1>
       <form>
         <section>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
-            id="username"
-            name="username"
+            id="email"
+            name="email"
             type="text"
-            autoComplete="username"
+            autoComplete="email"
             required
             autoFocus
+            onChange={textHandler}
           />
         </section>
         <section>
@@ -27,11 +59,10 @@ const Login = () => {
             type="password"
             autoComplete="current-password"
             required
+            onChange={textHandler}
           />
         </section>
-      <Link to="/search">
-        <button className="submit" type="submit">Login</button>
-      </Link>
+        <button type="submit" onClick={handleLogin} className="submit">Login</button>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
     </div>
