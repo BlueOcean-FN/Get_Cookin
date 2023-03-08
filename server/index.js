@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
+
 const axios = require('axios');
 const jwt = require('jsonwebtoken')
+
+
 const path = require('path');
 const cors = require('cors')
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
+const db = require('./database/index.js');
 //this is just for testing autocomplete
 const wordData = require('./testWords.js');
+
 
 const { authenticateUser } = require('./middleware.js');
 
@@ -20,6 +25,12 @@ const { authenticateUser } = require('./middleware.js');
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use(cors());
+
+const recipeSearch = require('./controllers/recipeSearch.js');
+const addUser = require('./controllers/addUser.js');
+const saveRecipe = require('./controllers/saveRecipe.js');
+
+
 app.use(express.json());
 app.use(authenticateUser);
 
@@ -41,6 +52,7 @@ app.post('/login-user', (req, res) => {
   res.send({ token: signed });
 })
 
+
 app.get('/testroute', (req, res) => {
   console.log(req.userId && req.userId);
   res.send('yo');
@@ -53,16 +65,27 @@ app.get('/testroute', (req, res) => {
 //   // axios.get(process.env.API_URL + req.url.slice(1))
 //   // .then(res => console.log(res));
 // })
+//recipe search
+app.get('/search', recipeSearch);
+
+//recipe saving
+app.post('/search', saveRecipe);
+
+//user signup
+app.post('/signup', addUser);
+
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
+  console.log(req.query);
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
+  // axios()
   res.send(JSON.stringify(wordData));
 })
 
 app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
+  console.log(`We are cookin' on port ${port}`)
 })
 
 //test data = = = = = = = = = = = = = = = = = = = = =

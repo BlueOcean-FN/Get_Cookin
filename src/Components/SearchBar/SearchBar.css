@@ -8,6 +8,12 @@
   width: 80%;
   margin: 0 auto;
 }
+.SearchPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .search-bar {
   display: flex;
