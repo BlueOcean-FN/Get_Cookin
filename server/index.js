@@ -45,20 +45,6 @@ app.post('/signup-user', (req, res) => {
   console.log(req.body.id, signed);
   res.send({ token: signed });
 })
-
-app.post('/signup-user', (req, res) => {
-  console.log(req.body);
-  if (req.body.email && req.body.first && req.body.last && req.body.password) {
-    req.body.id = tempUserStorage.length + 1;
-    tempUserStorage.push(req.body);
-  } else {
-    return res.sendStatus(401);
-  }
-
-  const signed = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
-  console.log(req.body.id, signed);
-  res.send({ token: signed });
-})
 app.get('/testroute', (req, res) => {
   console.log(req.user_id && req.user_id);
   res.send('yo');
