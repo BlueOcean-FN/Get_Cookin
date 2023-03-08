@@ -50,7 +50,7 @@ app.post('/login-user', (req, res) => {
 
 
 app.get('/testroute', (req, res) => {
-  console.log(req.userId && req.userId);
+  console.log(req.user_id && req.user_id);
   res.send('yo');
 })
 
