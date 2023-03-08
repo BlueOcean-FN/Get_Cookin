@@ -9,7 +9,9 @@ const CardList = (props) => {
 
   const cardList = cards.map((data) => {
     for (let i = 0; i < data.recipe.ingredients.length; i++) {
+      if (data.recipe.ingredients[i].text) {
       data.recipe.ingredients[i] = data.recipe.ingredients[i].text
+      }
     }
     if (data.recipe.cautions.length === 0) {
       data.recipe.cautions.push("No Cautions")
