@@ -34,36 +34,39 @@ const SignUp = () => {
       <h1 className="login-title">Sign up</h1>
       <form>
       <section>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             id="email"
             name="email"
             type="text"
             autoComplete="email"
+            placeholder="email"
             required
             onChange={textHandler}
             value={signUpCredentials.email}
           />
         </section>
         <section>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"></label>
           <input
             id="username"
             name="username"
             type="text"
             autoComplete="username"
+            placeholder="username"
             required
             onChange={textHandler}
             value={signUpCredentials.username}
           />
         </section>
         <section>
-          <label htmlFor="new-password">Password</label>
+          <label htmlFor="new-password"></label>
           <input
             id="new-password"
             name="password"
             type="password"
             autoComplete="new-password"
+            placeholder="password"
             required
             onChange={textHandler}
             value={signUpCredentials.password}
