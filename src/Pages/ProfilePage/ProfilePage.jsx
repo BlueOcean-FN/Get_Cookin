@@ -1,11 +1,13 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import RecentlyViewed from './RecentlyViewed.jsx';
 import DietaryRestrictions from './DietaryRestrictions.jsx';
 import './ProfilePage.css';
 
+const ProfilePage = ({ setLoggedIn }) => {
 
-
-const ProfilePage = () => {
+  useEffect(() => {
+    setLoggedIn(true);
+  }, [])
 
   return (
     <div className="profile-container">

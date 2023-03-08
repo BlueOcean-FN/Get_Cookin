@@ -1,30 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import "./LoginPage.css";
 
-const SignUp = () => {
+const SignUp = ({ setLoggedIn }) => {
+
+  useEffect(() => {
+    setLoggedIn(false)
+  }, [])
+
   const [signUpCredentials, setSignUpCredentials] = useState(
     {
       email: '',
-      username: '',
+      first: '',
+      last: '',
       password: ''
     }
   );
 
   const textHandler = (e) => {
     const input = e.target.value;
-    const field = e.target.name
+    const field = e.target.name;
     setSignUpCredentials({...signUpCredentials, [field]: input})
   }
 
   const handleSignUp = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/signup-user', signUpCredentials)
-    .then(function (response) {
+    .then(response => {
       console.log(response.data);
     })
-    .catch(function (error) {
+    .catch(error => {
       console.log(error);
     });
   }
@@ -47,16 +53,27 @@ const SignUp = () => {
           />
         </section>
         <section>
-          <label htmlFor="username"></label>
+          <label htmlFor="first">First</label>
           <input
-            id="username"
-            name="username"
+            id="first"
+            name="first"
             type="text"
-            autoComplete="username"
-            placeholder="username"
+            autoComplete="given-name"
             required
             onChange={textHandler}
-            value={signUpCredentials.username}
+            value={signUpCredentials.first}
+          />
+        </section>
+        <section>
+          <label htmlFor="last">Last</label>
+          <input
+            id="last"
+            name="last"
+            type="text"
+            autoComplete="family-name"
+            required
+            onChange={textHandler}
+            value={signUpCredentials.last}
           />
         </section>
         <section>

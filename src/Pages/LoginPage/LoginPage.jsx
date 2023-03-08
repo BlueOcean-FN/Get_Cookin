@@ -1,10 +1,18 @@
+// EXAMPLE REQ::::
+// axios.get(url, { headers: {authorization: localStorage.getItem('token')}})
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import './LoginPage.css';
 
-const Login = () => {
+const Login = ({ setLoggedIn }) => {
+
+  useEffect(() => {
+    setLoggedIn(false);
+  }, [])
+
   const navigate = useNavigate()
 
   const [loginCredentials, setLoginCredentials] = useState(
@@ -19,7 +27,6 @@ const Login = () => {
     const field = e.target.name
     setLoginCredentials({...loginCredentials, [field]: input})
   }
-
   const handleLogin = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/login-user', loginCredentials)
