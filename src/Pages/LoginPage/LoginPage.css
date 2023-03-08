@@ -1,0 +1,63 @@
+.layout-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(./getCookin.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.login-title {
+  font-size: 50px;
+  color: transparent;
+  background-image: linear-gradient(to left, #9a3c65, #f10410);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+form section {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-family: Arial !important;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 70%;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+img[src*="edamam.com"] {
+  display: none;
+}
+
