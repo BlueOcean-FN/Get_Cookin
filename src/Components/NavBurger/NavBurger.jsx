@@ -17,7 +17,7 @@ const NavBurger = () => {
         <Link to="/search" onClick={showNavbar}>Home</Link>
         <Link to="/profile" onClick={showNavbar}>Profile</Link>
         <Link to="/saved" onClick={showNavbar}>Saved Recipes</Link>
-        <Link to="/login" onClick={showNavbar}>Sign Out</Link>
+        <Link to="/login">Sign Out</Link>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
