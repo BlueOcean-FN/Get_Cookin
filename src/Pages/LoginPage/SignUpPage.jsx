@@ -40,12 +40,13 @@ const SignUp = ({ setLoggedIn }) => {
       <h1 className="login-title">Sign up</h1>
       <form>
       <section>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             id="email"
             name="email"
             type="text"
             autoComplete="email"
+            placeholder="email"
             required
             onChange={textHandler}
             value={signUpCredentials.email}
@@ -76,12 +77,13 @@ const SignUp = ({ setLoggedIn }) => {
           />
         </section>
         <section>
-          <label htmlFor="new-password">Password</label>
+          <label htmlFor="new-password"></label>
           <input
             id="new-password"
             name="password"
             type="password"
             autoComplete="new-password"
+            placeholder="password"
             required
             onChange={textHandler}
             value={signUpCredentials.password}

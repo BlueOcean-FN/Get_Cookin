@@ -1,0 +1,42 @@
+.accountInfo {
+  height: 260px;
+  width: 100%;
+  flex-wrap: wrap;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:0 27px 55px 0  rgba(173, 212, 244, 0.3),
+    0 17px 17px 0 rgba(73, 65, 65, 0.15);
+}
+
+/* .dietaryRestrictions {
+  height: 260px;
+  width: 100%;
+  flex-wrap: wrap;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 27px 55px 0  rgba(173, 212, 244, 0.3),
+    0 17px 17px 0 rgba(73, 65, 65, 0.15);
+} */
+
+
+
+
+.name{
+  display: flex;
+  gap: 2rem;
+  padding: 0 1 rem;
+}
+
+.title{
+  float: left;
+}
+.data {
+  display: flex;
+
+}
+.val {
+  float: right;
+}
+input[type="checkbox"]{
+  display: inline-block;
+}
