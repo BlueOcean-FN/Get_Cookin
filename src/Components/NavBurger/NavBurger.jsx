@@ -18,15 +18,17 @@ const NavBurger = () => {
     <header>
       <h3>LOGO</h3>
       <nav ref={navRef}>
-        <Link to="/search">Home</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/saved">Saved Recipes</Link>
+
+        <Link to="/search" onClick={showNavbar}>Home</Link>
+        <Link to="/profile" onClick={showNavbar}>Profile</Link>
+        <Link to="/saved" onClick={showNavbar}>Saved Recipes</Link>
         <Link to="/login" onClick={handleSignout}>Sign Out</Link>
+
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>∂
+      <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>
