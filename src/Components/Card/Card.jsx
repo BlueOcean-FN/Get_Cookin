@@ -5,7 +5,6 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import './Card.css';
 
 const Card = ({ data }) => {
-  console.log(data)
 
   const [cardImage, setCardImage] = useState(null);
   const [expanded, setExpanded] = useState(false);
