@@ -70,8 +70,8 @@ const Card = ({ data }) => {
       <div className="ExpansionBlock">
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
       <button className="show-recipe" onClick={() => window.location.href = data.url} >Show Recipe</button>
-      
-      
+
+
       </div>
     </div>
 

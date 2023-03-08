@@ -42,12 +42,13 @@ const SearchBar = ({ingredients, setIngredients}) => {
       setTimer(setTimeout( async () => {
         const words = await axios.get('http://localhost:3000/ingredientdata', {
           headers: {
-            authorization: localStorage.getItem('token');
+            authorization: localStorage.getItem('token')
           },
           params: {
             search: searchValue
           }
         })
+        console.log(words.data);
         setAutocomplete(words.data);
       }, 300))
     }, [searchValue])
