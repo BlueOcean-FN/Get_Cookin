@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./LoginPage.css";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState(
+  const [signUpCredentials, setSignUpCredentials] = useState(
     {
       email: '',
       username: '',
@@ -15,12 +15,12 @@ const SignUp = () => {
   const textHandler = (e) => {
     const input = e.target.value;
     const field = e.target.name
-    setCredentials({...credentials, [field]: input})
+    setSignUpCredentials({...signUpCredentials, [field]: input})
   }
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/signup', credentials)
+    axios.post('http://localhost:3000/signup-user', signUpCredentials)
     .then(function (response) {
       console.log(response.data);
     })
@@ -34,39 +34,42 @@ const SignUp = () => {
       <h1 className="login-title">Sign up</h1>
       <form>
       <section>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             id="email"
             name="email"
             type="text"
             autoComplete="email"
+            placeholder="email"
             required
             onChange={textHandler}
-            value={credentials.email}
+            value={signUpCredentials.email}
           />
         </section>
         <section>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"></label>
           <input
             id="username"
             name="username"
             type="text"
             autoComplete="username"
+            placeholder="username"
             required
             onChange={textHandler}
-            value={credentials.username}
+            value={signUpCredentials.username}
           />
         </section>
         <section>
-          <label htmlFor="new-password">Password</label>
+          <label htmlFor="new-password"></label>
           <input
             id="new-password"
             name="password"
             type="password"
             autoComplete="new-password"
+            placeholder="password"
             required
             onChange={textHandler}
-            value={credentials.password}
+            value={signUpCredentials.password}
           />
         </section>
       <Link to="/search">

@@ -1,7 +1,0 @@
-DB_USER="fads"
-DB_HOST="afds"
-DB_NAME="afsd"
-DB_PASS="afds"
-DB_PORT="afds"
-
-API_URL="https://api.edamam.com/search?app_id={YOUR_STUFF_HERE}&app_key={YOUR_STUFF_HERE}"

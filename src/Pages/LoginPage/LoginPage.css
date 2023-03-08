@@ -1,6 +1,3 @@
-body {
-}
-
 .layout-form {
   position: absolute;
   top: 0;
@@ -10,6 +7,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: url(./getCookin.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .login-title {
@@ -52,14 +53,11 @@ input[type="password"] {
   width: 70%;
   text-decoration: none;
   margin: 0 auto;
+  margin-bottom: 10px;
+  text-decoration: none;
 }
 
 img[src*="edamam.com"] {
   display: none;
 }
 
-p {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}

@@ -6,76 +6,76 @@
 -- SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
--- Table 'Users'
+-- Table 'users'
 --
 -- ---
 
---DROP TABLE IF EXISTS `Users`;
+--DROP TABLE IF EXISTS `users`;
 
-CREATE TABLE IF NOT EXISTS `Users` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `hash` VARCHAR NULL DEFAULT NULL,
-  `email` VARCHAR NULL DEFAULT NULL,
-  `first` VARCHAR NULL DEFAULT NULL,
-  `last` VARCHAR NULL DEFAULT NULL,
-  `exclusions` VARCHAR NULL DEFAULT NULL,
-  `lifestyle` VARCHAR NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS users (
+  "id" SERIAL NOT NULL,
+  "hash" VARCHAR NOT NULL DEFAULT NULL,
+  "email" VARCHAR NOT NULL DEFAULT NULL,
+  "first" VARCHAR NOT NULL DEFAULT NULL,
+  "last" VARCHAR NOT NULL DEFAULT NULL,
+  "exclusions" VARCHAR NULL DEFAULT NULL,
+  "lifestyle" VARCHAR NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
 );
 
 -- ---
--- Table 'Users_Recipes'
+-- Table 'users_recipes'
 --
 -- ---
 
---DROP TABLE IF EXISTS `Users_Recipes`;
+--DROP TABLE IF EXISTS "users_recipes";
 
-CREATE TABLE IF NOT EXISTS `Users_Recipes` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `user_id` INTEGER NOT NULL DEFAULT NULL,
-  `recipe_id` INTEGER NULL DEFAULT NULL,
-  `type` VARCHAR NULL DEFAULT NULL,
-  `date` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS users_recipes (
+  "id" SERIAL NOT NULL,
+  "user_id" INTEGER NOT NULL DEFAULT NULL,
+  "recipe_id" INTEGER NULL DEFAULT NULL,
+  "type" VARCHAR NULL DEFAULT NULL,
+  "date" TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
 );
 
 -- ---
--- Table 'Recipes'
+-- Table 'recipes'
 --
 -- ---
 
---DROP TABLE IF EXISTS `Recipes`;
+--DROP TABLE IF EXISTS "recipes";
 
-CREATE TABLE IF NOT EXISTS `Recipes` (
-  `id` INTEGER NOT NULL,
-  `name` VARCHAR NULL DEFAULT NULL,
-  `url` VARCHAR NULL DEFAULT NULL,
-  `image_url` VARCHAR NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS recipes (
+  "id" SERIAL NOT NULL,
+  "name" VARCHAR NULL DEFAULT NULL,
+  "url" VARCHAR NULL DEFAULT NULL,
+  "image_url" VARCHAR NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
 );
 
 -- ---
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `Users_Recipes` ADD FOREIGN KEY (user_id) REFERENCES `Users` (`id`);
-ALTER TABLE `Users_Recipes` ADD FOREIGN KEY (recipe_id) REFERENCES `Recipes` (`id`);
+ALTER TABLE "users_recipes" ADD FOREIGN KEY (user_id) REFERENCES "users" ("id");
+ALTER TABLE "users_recipes" ADD FOREIGN KEY (recipe_id) REFERENCES "recipes" ("id");
 
 -- ---
 -- Table Properties
 -- ---
 
--- ALTER TABLE `Users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `Users_Recipes` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `Recipes` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE "users" ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE "users_recipes" ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE "recipes" ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
 -- ---
 
--- INSERT INTO `Users` (`id`,`hash`,`email`,`first`,`last`,`exclusions`,`lifestyle`) VALUES
+-- INSERT INTO "users` (`id`,`hash`,`email`,`first`,`last`,`exclusions`,`lifestyle`) VALUES
 -- ('','','','','','','');
--- INSERT INTO `Users_Recipes` (`id`,`user_id`,`recipe_id`,`type`,`date`) VALUES
+-- INSERT INTO `users_recipes` (`id`,`user_id`,`recipe_id`,`type`,`date`) VALUES
 -- ('','','','','');
--- INSERT INTO `Recipes` (`id`,`name`,`url`,`image_url`) VALUES
+-- INSERT INTO `recipes` (`id`,`name`,`url`,`image_url`) VALUES
 -- ('','','','');
