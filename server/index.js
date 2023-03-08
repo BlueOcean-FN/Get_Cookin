@@ -1,29 +1,18 @@
 const express = require('express');
 const app = express();
-
 const axios = require('axios');
 const jwt = require('jsonwebtoken')
-
-
 const path = require('path');
 const cors = require('cors')
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
-const db = require('./database/index.js');
 //this is just for testing autocomplete
 const wordData = require('./testWords.js');
 
 
 const { authenticateUser } = require('./middleware.js');
 
-// serve JavaScript module files with the correct MIME type
-// app.get('*.js', (req, res, next) => {
-//   res.type('application/javascript');
-//   next();
-// });
-
 app.use(express.static(path.join(__dirname, '../dist')));
-
 app.use(cors());
 
 const recipeSearch = require('./controllers/recipeSearch.js');
@@ -31,29 +20,49 @@ const addUser = require('./controllers/addUser.js');
 const saveRecipe = require('./controllers/saveRecipe.js');
 const getAutocomplete = require('./controllers/getAutocomplete.js');
 
-
 app.use(express.json());
 app.use(authenticateUser);
 
 // AUTHENTICATION  ===
 app.post('/login-user', (req, res) => {
   let tempUser = searchTempUserStorage(req.body);
-
-  if(!tempUser) {
-    return res.sendStatus(401)
-  }
-
+  if(!tempUser) return res.sendStatus(401)
   const signed = jwt.sign({ id: tempUser.id }, process.env.JWT_SECRET);
   console.log(tempUser.id, signed);
   res.send({ token: signed });
 })
 
+app.post('/signup-user', (req, res) => {
+  console.log(req.body);
+  if (req.body.email && req.body.first && req.body.last && req.body.password) {
+    req.body.id = tempUserStorage.length + 1;
+    tempUserStorage.push(req.body);
+  } else {
+    return res.sendStatus(401);
+  }
 
+  const signed = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
+  console.log(req.body.id, signed);
+  res.send({ token: signed });
+})
+
+app.post('/signup-user', (req, res) => {
+  console.log(req.body);
+  if (req.body.email && req.body.first && req.body.last && req.body.password) {
+    req.body.id = tempUserStorage.length + 1;
+    tempUserStorage.push(req.body);
+  } else {
+    return res.sendStatus(401);
+  }
+
+  const signed = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
+  console.log(req.body.id, signed);
+  res.send({ token: signed });
+})
 app.get('/testroute', (req, res) => {
   console.log(req.user_id && req.user_id);
   res.send('yo');
 })
-
 // /AUTHENTICATION ^^^
 
 // app.get('/&q=*', (req, res) => {
@@ -61,16 +70,14 @@ app.get('/testroute', (req, res) => {
 //   // axios.get(process.env.API_URL + req.url.slice(1))
 //   // .then(res => console.log(res));
 // })
+
 //recipe search
 app.get('/search', recipeSearch);
-
 //recipe saving
 app.post('/saved', saveRecipe.postSaved);
 app.get('/saved', saveRecipe.getSaved);
-
 //user signup
 app.post('/signup', addUser);
-
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', getAutocomplete);

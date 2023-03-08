@@ -11,16 +11,18 @@ import SignUpPage from './Pages/LoginPage/SignUpPage.jsx'
 
 function App() {
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="App">
-      <NavBurger/>
+      { loggedIn && <NavBurger/> }
       <Routes>
         <Route path='/' element={<Navigate to='/login' replace />}/>
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/search' element={<SearchPage />} />
-        <Route path='/profile' element={<ProfilePage />} />
-        <Route path='/saved' element={<SavedPage />} />
+        <Route path='/login' element={<LoginPage setLoggedIn={setLoggedIn} />} />
+        <Route path='/signup' element={<SignUpPage setLoggedIn={setLoggedIn} />} />
+        <Route path='/search' element={<SearchPage setLoggedIn={setLoggedIn} />} />
+        <Route path='/profile' element={<ProfilePage setLoggedIn={setLoggedIn} />} />
+        <Route path='/saved' element={<SavedPage setLoggedIn={setLoggedIn} />} />
       </Routes>
     </div>
   )

@@ -4,36 +4,29 @@ import { Link } from "react-router-dom"
 import './NavBurger.css'
 
 const NavBurger = () => {
-    const navRef = useRef();
+  const navRef = useRef();
 
-    const showNavbar = () => {
-        navRef.current.classList.toggle(
-			"responsive_nav"
-		);
-    }
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  }
 
-
-        return (
-            <header>
-                <h3>LOGO</h3>
-                <nav ref={navRef}>
-                    <Link to="/">Home</Link>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/saved">Saved Recipes</Link>
-                    <Link to="/login">Sign Out</Link>
-                    <button
-                        className="nav-btn nav-close-btn"
-                        onClick={showNavbar}>
-                        <FaTimes />
-                    </button>
-                </nav>
-                <button
-                    className="nav-btn"
-                    onClick={showNavbar}>
-                    <FaBars />
-                </button>
-            </header>
-        );
+  return (
+    <header>
+      <h3>LOGO</h3>
+      <nav ref={navRef}>
+        <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/saved">Saved Recipes</Link>
+        <Link to="/login">Sign Out</Link>
+        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+          <FaTimes />
+        </button>
+      </nav>
+      <button className="nav-btn" onClick={showNavbar}>∂
+        <FaBars />
+      </button>
+    </header>
+  );
 }
 
 export default NavBurger
