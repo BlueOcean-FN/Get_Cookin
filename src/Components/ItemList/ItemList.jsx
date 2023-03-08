@@ -7,11 +7,10 @@ import './ItemList.css';
 const ItemList = ({title, data}) => {
 
 
-  const renderItemList = data.map((entry) => {
+  const renderItemList = data.map((entry, index) => {
     return (
-      <li key={entry.name}>
+      <li key={entry.name + `${index}`}>
       <a href={entry.url} target="_blank">{entry.name}</a><br/>
-      Ingredients: {entry.ingredients} <br/>
       <hr/>
     </li>
     )
