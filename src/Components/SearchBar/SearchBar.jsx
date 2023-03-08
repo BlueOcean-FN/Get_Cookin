@@ -4,7 +4,6 @@ import './SearchBar.css';
 import Ingredient from '../Ingredient/Ingredient';
 import PredictiveIngredient from '../PredictiveIngredient/PredictiveIngredient';
 import axios from 'axios';
-import autoComplete from "@tarekraafat/autocomplete.js";
 
 
 
@@ -12,9 +11,7 @@ const SearchBar = ({ingredients, setIngredients}) => {
 
     const [searchValue, setSearchValue] = useState('');
     const [autocomplete, setAutocomplete] = useState([]);
-    const [autoData, setAutoData] = useState([]);
     const [timer, setTimer] = useState(null);
-    const [autocompleteSource, setAutocompleteSource] = useState(null);
 
 
 
@@ -40,53 +37,20 @@ const SearchBar = ({ingredients, setIngredients}) => {
       setAutocomplete([]);
     }
 
-    const getWords = async () => {
-
-    }
     useEffect(() => {
       clearTimeout(timer);
-      setTimer(setTimeout(() => {
-        setAutocompleteSource(async () => {
-          try {
-            const source = await axios.get(`http://localhost:3000/ingredientdata`, {
-              params: {
-                search: searchValue
-              }
-            });
-            const data = source.data;
-            return data;
-          } catch (error) {
-            return error;
+      setTimer(setTimeout( async () => {
+        const words = await axios.get('http://localhost:3000/ingredientdata', {
+          headers: {
+            authorization: localStorage.getItem('token');
+          },
+          params: {
+            search: searchValue
           }
         })
-      }, 1000))
-
+        setAutocomplete(words.data);
+      }, 300))
     }, [searchValue])
-
-    useEffect(() => {
-      let autoCompleteJS = new autoComplete({
-        placeHolder: "Search for an ingredient . . .",
-        data: {
-            src: []
-        },
-        wrapper: false,
-        resultsList: false,
-        resultItem: {
-          highlight: true,
-        },
-        submit: true,
-        // debounce: 1000,
-        threshold: 1,
-      })
-      setAutocompleteSource(autoCompleteJS.data.src);
-
-      document.querySelector("#autoComplete").addEventListener("results", function (event) {
-        // "event.detail" carries the matching results values
-        setAutocomplete(event.detail.results);
-    });
-    }, [])
-
-
 
     return (
     <>
@@ -107,13 +71,13 @@ const SearchBar = ({ingredients, setIngredients}) => {
                            autoComplete="off"></input>
                 </form>
             </div>
-            <div className="predictive-text">
+            {autocomplete.length > 0 && <div className="predictive-text">
                 {autocomplete.map((item, index) => (
-                  <PredictiveIngredient ingredient={item.value}
+                  <PredictiveIngredient ingredient={item}
                                         handleClick={predictiveClick}
                                         key={index}/>
                 ))}
-            </div>
+            </div>}
         </div>
     </>
 

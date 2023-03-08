@@ -29,6 +29,7 @@ app.use(cors());
 const recipeSearch = require('./controllers/recipeSearch.js');
 const addUser = require('./controllers/addUser.js');
 const saveRecipe = require('./controllers/saveRecipe.js');
+const getAutocomplete = require('./controllers/getAutocomplete.js');
 
 
 app.use(express.json());
@@ -76,13 +77,7 @@ app.post('/signup', addUser);
 
 
 //this is just for testing autocomplete
-app.get('/ingredientdata', (req, res) => {
-  console.log(req.query);
-  res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  // axios()
-  res.send(JSON.stringify(wordData));
-})
+app.get('/ingredientdata', getAutocomplete);
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)
