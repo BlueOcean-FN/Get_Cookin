@@ -34,8 +34,8 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1>Get Cookin jambalaya</h1>
+    <div className="layout-form">
+      <h1 className="login-title">Get Cookin</h1>
       <form>
         <section>
           <label htmlFor="email">Email</label>
@@ -60,7 +60,7 @@ const Login = () => {
             onChange={textHandler}
           />
         </section>
-        <button type="submit" onClick={handleLogin}>Login</button>
+        <button type="submit" onClick={handleLogin} className="submit">Login</button>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
     </div>

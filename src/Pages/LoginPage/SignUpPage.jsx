@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import "./LoginPage.css";
 
 const SignUp = () => {
   const [signUpCredentials, setSignUpCredentials] = useState(
@@ -29,8 +30,8 @@ const SignUp = () => {
   }
 
   return (
-    <div>
-      <h1>Sign up</h1>
+    <div className="layout-form">
+      <h1 className="login-title">Sign up</h1>
       <form>
       <section>
           <label htmlFor="email">Email</label>
@@ -69,7 +70,7 @@ const SignUp = () => {
           />
         </section>
       <Link to="/search">
-        <button type="submit" onClick={handleSignUp}>Sign Up</button>
+        <button className="submit" type="submit" onClick={handleSignUp}>Sign Up</button>
       </Link>
       </form>
     </div>
