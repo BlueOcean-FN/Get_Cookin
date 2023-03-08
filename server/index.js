@@ -9,6 +9,7 @@ const db = require('./database/index.js');
 const wordData = require('./testWords.js');
 
 const recipeSearch = require('./controllers/recipeSearch.js');
+const addUser = require('./controllers/addUser.js');
 
 app.use(express.json());
 
@@ -21,7 +22,8 @@ app.get('/&q=*', (req, res) => {
 //recipe search
 app.get('/search', recipeSearch);
 
-app.post('/signup', )
+//user signup
+app.post('/signup', addUser);
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
