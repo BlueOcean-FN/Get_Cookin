@@ -8,10 +8,18 @@ import './ProfilePage.css';
 const ProfilePage = () => {
 
   return (
-    <div className="ProfilePage">
-      <div className="UserInfo">
+    <div className="profile-container">
+      <div className="accountInfo">
         <div className="UserName">Name</div>
         <div className="UserEmail">Email</div>
+        <div className="password">Password</div>
+        <div className="ssn">SSN</div>
+      </div>
+      <div>
+        <DietaryRestrictions/>
+      </div>
+      <div>
+        <RecentlyViewed/>
       </div>
     </div>
   )
