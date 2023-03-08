@@ -24,7 +24,8 @@ app.get('/&q=*', (req, res) => {
 app.get('/search', recipeSearch);
 
 //recipe saving
-app.post('/search', saveRecipe);
+app.post('/saved', saveRecipe.postSaved);
+app.get('/saved', saveRecipe.getSaved);
 
 //user signup
 app.post('/signup', addUser);
