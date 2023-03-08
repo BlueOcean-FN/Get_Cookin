@@ -13,8 +13,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
     const [autocomplete, setAutocomplete] = useState([]);
     const [timer, setTimer] = useState(null);
 
-
-
     const addIngredient = (e) => {
       e.preventDefault();
       setIngredients([...ingredients, e.target[0].value]);
@@ -48,7 +46,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
             search: searchValue
           }
         })
-        console.log(words.data);
         setAutocomplete(words.data);
       }, 300))
     }, [searchValue])
