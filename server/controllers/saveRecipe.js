@@ -20,7 +20,7 @@ exports.getSaved = (req,res) => {
     });
   };
 
-exports.postSaved('/saved', (req,res) => {
+exports.postSaved = (req,res) => {
   const user_id = req.params.user_id;
   const recipe_id = req.params.recipe_id;
   const type = req.params.type;
@@ -37,7 +37,7 @@ exports.postSaved('/saved', (req,res) => {
     .catch((err) => {
       res.status(501).send(err);
     });
-  });
+  };
 
 
 

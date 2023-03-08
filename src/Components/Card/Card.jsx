@@ -4,12 +4,12 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
 import './Card.css';
 
-const Card = ({ data }) => {  
+const Card = ({ data }) => {
   console.log(data)
 
   const [cardImage, setCardImage] = useState(null);
   const [expanded, setExpanded] = useState(false);
- 
+
   const displayItem = (prop) => {
     let arr = [];
     if (!expanded || prop !== 'ingredients') for (let i = 0; i < 7 && i < data[prop].length; i++) arr.push(data[prop][i]);
@@ -71,8 +71,8 @@ const Card = ({ data }) => {
       <div className="ExpansionBlock">
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
       <button className="show-recipe"onClick={() => window.open(data.url, '_blank', 'noopener,noreferrer')} >Show Recipe</button>
-      
-      
+
+
       </div>
     </div>
 

@@ -38,11 +38,6 @@ app.use(express.json());
 app.use(cors());
 app.use(authenticateUser);
 
-// catch-all route handler for other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
-});
-
 // AUTHENTICATION  ===
 app.post('/login-user', (req, res) => {
   let tempUser = searchTempUserStorage(req.body);
@@ -92,6 +87,11 @@ app.post('/signup', addUser);
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', getAutocomplete);
+
+// catch-all route handler for other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)
