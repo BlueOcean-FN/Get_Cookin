@@ -57,7 +57,7 @@ const SavedPage = ({ user_id, setLoggedIn }) => {
     }
 
   return (
-    <>
+  
     <div className="saveListContainer">
       <div className="saveListSearchBar">
         <form onSubmit={handleSearch}>
@@ -71,7 +71,7 @@ const SavedPage = ({ user_id, setLoggedIn }) => {
         {renderSaveList()}
       </div>
     </div>
-    </>
+    
   )
 }
 

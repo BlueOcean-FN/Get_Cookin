@@ -1,3 +1,8 @@
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 h1 {
   font-family: "hotpizza";
 	src: local("hotpizza"),

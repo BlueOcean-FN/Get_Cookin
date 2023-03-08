@@ -22,7 +22,7 @@ const NavBurger = () => {
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>∂
+      <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>

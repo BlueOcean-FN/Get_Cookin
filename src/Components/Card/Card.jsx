@@ -12,8 +12,8 @@ const Card = ({ data }) => {
 
   const displayItem = (prop) => {
     let arr = [];
-    if (!expanded || prop !== 'ingredients') for (let i = 0; i < 7 && i < data[prop].length; i++) arr.push(data[prop][i]);
-    else for (let i = 0; i < 8 && i < data[prop].length; i++) arr.push(data[prop][i]);
+    if (!expanded || prop !== 'ingredients') for (let i = 0; i < 4 && i < data[prop].length; i++) arr.push(data[prop][i]);
+    else for (let i = 0; i < 5 && i < data[prop].length; i++) arr.push(data[prop][i]);
     if (arr.length < data[prop].length) arr.push('...');
     return arr;
   }
