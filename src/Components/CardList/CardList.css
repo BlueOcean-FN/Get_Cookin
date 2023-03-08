@@ -1,3 +1,19 @@
-.cardList {
-  width: 100;
+
+
+
+
+
+.CardList {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .CardList {
+    flex-direction: column;
+    
+  }
 }
