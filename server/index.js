@@ -6,12 +6,14 @@ const jwt = require('jsonwebtoken')
 
 
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
+
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
 const db = require('./database/index.js');
 //this is just for testing autocomplete
 const wordData = require('./testWords.js');
+const autoComplete_URL = process.env.AUTOCOMPLETE_API_URL;
 
 
 const { authenticateUser } = require('./middleware.js');
@@ -33,6 +35,7 @@ const getAutocomplete = require('./controllers/getAutocomplete.js');
 
 
 app.use(express.json());
+app.use(cors());
 app.use(authenticateUser);
 
 // catch-all route handler for other routes
@@ -59,6 +62,16 @@ app.get('/testroute', (req, res) => {
   res.send('yo');
 })
 
+app.get('/autoComplete', (req, res) => {
+  console.log('Inside get of autoComplete');
+  let userInput = req.query.q;
+  axios.get(`${autoComplete_URL}&q=${userInput}&limit=6`)
+  .then(({data}) => {
+    console.log(data)
+    res.status(200).send(data);
+  })
+  .catch((err) => console.log(err));
+})
 // /AUTHENTICATION ^^^
 
 // app.get('/&q=*', (req, res) => {
