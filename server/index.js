@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-// const axios = require('axios');
+const axios = require('axios');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
@@ -31,11 +31,14 @@ app.post('/signup', addUser);
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', (req, res) => {
-  console.log(req.query);
+  // console.log(req.query.search);
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  // axios()
-  res.send(JSON.stringify(wordData));
+  axios(`https://api.edamam.com/auto-complete?q=${req.query.search}&app_id=${process.env.FOOD_ID}&app_key=${process.env.FOOD_KEY}`)
+  .then(results => {
+    console.log(results.data);
+    res.send(JSON.stringify(results.data));
+  })
 })
 
 app.listen(port, () => {
