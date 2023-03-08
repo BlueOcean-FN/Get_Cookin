@@ -41,6 +41,9 @@ const SearchBar = ({ingredients, setIngredients}) => {
       clearTimeout(timer);
       setTimer(setTimeout( async () => {
         const words = await axios.get('http://localhost:3000/ingredientdata', {
+          headers: {
+            authorization: localStorage.getItem('token');
+          },
           params: {
             search: searchValue
           }
