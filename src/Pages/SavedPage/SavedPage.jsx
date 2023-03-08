@@ -38,7 +38,7 @@ const SavedPage = ({ user_id, setLoggedIn }) => {
     }
 
   return (
-    <>
+  
     <div className="saveListContainer">
       <div className="saveListSearchBar">
         Search Bar Here - Stretch Goal
@@ -47,7 +47,7 @@ const SavedPage = ({ user_id, setLoggedIn }) => {
         {renderSaveList()}
       </div>
     </div>
-    </>
+    
   )
 }
 
