@@ -10,13 +10,12 @@ const MoreDietaryRes = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [text, setText] = useState('');
 
-const edamamApi = (userInput) => {
-      axios.get(`http://localhost:3000/autoComplete?q=${userInput}`)
-      .then (res => {
-        console.log('InsideuseEffect', res)
-        setSuggestions(res.data)
-      });
-}
+  const edamamApi = (userInput) => {
+    axios.get(`http://localhost:3000/autoComplete?q=${userInput}`, {headers: {authorization: localStorage.getItem('token')}})
+    .then(res => {
+      setSuggestions(res.data)
+    });
+  }
 
   const addRestrictions = (e) => {
     e.preventDefault();
