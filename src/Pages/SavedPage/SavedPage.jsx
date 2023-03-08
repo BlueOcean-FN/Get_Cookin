@@ -1,10 +1,13 @@
-import {React, useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './SavedPage.css';
 import axios from "axios";
 import ItemList from "../../Components/ItemList/ItemList.jsx";
 
-const SavedPage = ({user_id}) => {
+const SavedPage = ({ user_id, setLoggedIn }) => {
 
+  useEffect(() => {
+    setLoggedIn(true);
+  }, [])
 
   const [saveList, setSaveList] = useState([{name: 'Unethical Chicken', ingredients: 'One human child, 10 gal chicken broth, bushel carrots, bushel potatoes', url: 'http://www.zaxbys.com'}, {name: 'Chicken Cordon Bleu 2', ingredients: 'One blue chicken, 1 lb mozzarella cheese, bread crumbs, parsley', url: 'http://www.kfc.com'}]);
 

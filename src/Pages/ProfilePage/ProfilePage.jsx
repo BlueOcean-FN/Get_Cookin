@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './ProfilePage.css';
 
-const ProfilePage = () => {
+const ProfilePage = ({ setLoggedIn }) => {
+
+  useEffect(() => {
+    setLoggedIn(true);
+  }, [])
 
   return (
     <div className="ProfilePage">
