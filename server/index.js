@@ -10,6 +10,7 @@ const wordData = require('./testWords.js');
 
 const recipeSearch = require('./controllers/recipeSearch.js');
 const addUser = require('./controllers/addUser.js');
+const saveRecipe = require('./controllers/saveRecipe.js');
 
 app.use(express.json());
 
@@ -21,6 +22,9 @@ app.get('/&q=*', (req, res) => {
 
 //recipe search
 app.get('/search', recipeSearch);
+
+//recipe saving
+app.post('/search', saveRecipe);
 
 //user signup
 app.post('/signup', addUser);
