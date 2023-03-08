@@ -11,9 +11,7 @@ const SearchBar = ({ingredients, setIngredients}) => {
 
     const [searchValue, setSearchValue] = useState('');
     const [autocomplete, setAutocomplete] = useState([]);
-    const [autoData, setAutoData] = useState([]);
     const [timer, setTimer] = useState(null);
-    const [autocompleteSource, setAutocompleteSource] = useState(null);
 
 
 
@@ -39,22 +37,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
       setAutocomplete([]);
     }
 
-    // const getWords = async () => {
-
-    // }
-    // useEffect(() => {
-    //   clearTimeout(timer);
-    //   setTimer(setTimeout( async () => {
-    //     const words = await axios.get('http://localhost:3000/ingredientdata`, {
-    //       params: {
-    //         search: searchValue
-    //       })
-    //       setAutocomplete(words);
-    //     });
-
-    //   }, 1000);
-
-    // }, [searchValue])
     useEffect(() => {
       clearTimeout(timer);
       setTimer(setTimeout( async () => {
@@ -63,7 +45,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
             search: searchValue
           }
         })
-        // console.log(words);
         setAutocomplete(words.data);
       }, 300))
     }, [searchValue])
