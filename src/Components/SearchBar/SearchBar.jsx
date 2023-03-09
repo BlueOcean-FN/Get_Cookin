@@ -58,6 +58,9 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
         <div className="search-bar-container">
             <div className="search-bar">
                 <HiOutlineSearch />
+                <form onSubmit={searchRecipes}>
+                  <button>Search!</button>
+                </form>
                 {ingredients.map((ingredient, index) => (
                     <Ingredient key={index}
                                 ingredient={ingredient}
@@ -71,9 +74,6 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
                            placeholder="enter ingredients"
                            autoFocus="autofocus"
                            autoComplete="off"></input>
-                </form>
-                <form onSubmit={searchRecipes}>
-                  <button>Search!</button>
                 </form>
             </div>
             {autocomplete.length > 0 && <div className="predictive-text"><div className="suggestions">Suggestions</div>
