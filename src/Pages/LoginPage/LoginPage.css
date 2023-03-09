@@ -14,11 +14,12 @@
 }
 
 .login-title {
-  font-size: 50px;
+  font-size: 60px;
   color: transparent;
   background-image: linear-gradient(to left, #9a3c65, #f10410);
   background-clip: text;
   -webkit-background-clip: text;
+  margin-bottom: 40px;
 }
 
 form section {

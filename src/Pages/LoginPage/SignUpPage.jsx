@@ -53,24 +53,26 @@ const SignUp = ({ setLoggedIn }) => {
           />
         </section>
         <section>
-          <label htmlFor="first">First</label>
+          <label htmlFor="first"></label>
           <input
             id="first"
             name="first"
             type="text"
             autoComplete="given-name"
+            placeholder="first name"
             required
             onChange={textHandler}
             value={signUpCredentials.first}
           />
         </section>
         <section>
-          <label htmlFor="last">Last</label>
+          <label htmlFor="last"></label>
           <input
             id="last"
             name="last"
             type="text"
             autoComplete="family-name"
+            placeholder="last name"
             required
             onChange={textHandler}
             value={signUpCredentials.last}
