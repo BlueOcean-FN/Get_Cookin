@@ -46,7 +46,7 @@ const SignUp = ({ setLoggedIn }) => {
             name="email"
             type="text"
             autoComplete="email"
-            placeholder="email"
+            placeholder="E-mail"
             required
             onChange={textHandler}
             value={signUpCredentials.email}
@@ -59,7 +59,7 @@ const SignUp = ({ setLoggedIn }) => {
             name="first"
             type="text"
             autoComplete="given-name"
-            placeholder="first name"
+            placeholder="Your First Name"
             required
             onChange={textHandler}
             value={signUpCredentials.first}
@@ -72,7 +72,7 @@ const SignUp = ({ setLoggedIn }) => {
             name="last"
             type="text"
             autoComplete="family-name"
-            placeholder="last name"
+            placeholder="Your Last Name"
             required
             onChange={textHandler}
             value={signUpCredentials.last}
@@ -85,7 +85,7 @@ const SignUp = ({ setLoggedIn }) => {
             name="password"
             type="password"
             autoComplete="new-password"
-            placeholder="password"
+            placeholder="Password"
             required
             onChange={textHandler}
             value={signUpCredentials.password}

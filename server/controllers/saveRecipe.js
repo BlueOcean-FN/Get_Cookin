@@ -1,6 +1,6 @@
 const model = require('../models/saveRecipe.js');
 
-exports.getSaved = (req, res) => {
+module.exports.getSaved = (req, res) => {
   const user_id = req.params.user_id;
   const type = req.params.type;
 
@@ -18,7 +18,7 @@ exports.getSaved = (req, res) => {
     });
   };
 
-exports.postSaved = (req, res) => {
+module.exports.postSaved = (req, res) => {
   const user_id = req.params.user_id;
   const recipe_id = req.params.recipe_id;
   const type = req.params.type;
