@@ -22,21 +22,30 @@ const Login = ({ setLoggedIn }) => {
     }
   );
 
+  const sendToSignUp = (e) => {
+    e.preventDefault();
+    navigate('/signup')
+  }
+
   const textHandler = (e) => {
     const input = e.target.value;
     const field = e.target.name
     setLoginCredentials({...loginCredentials, [field]: input})
   }
+
   const handleLogin = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/login-user', loginCredentials)
     .then(res => {
+
       localStorage.setItem('email', loginCredentials.email);
+
       localStorage.setItem('token', `Bearer ${res.data.token}`);
       navigate(`/search`);
     })
     .catch(err => {
       console.log(err);
+      //receives 500 if user does't exist
         // display err code (console.log for now)
         // or maybe redirect to signup page??
     })
@@ -73,9 +82,7 @@ const Login = ({ setLoggedIn }) => {
         </section>
         <button type="submit" onClick={handleLogin} className="submit">Login</button>
       </form>
-      <Link to="/signup">
-      <button className="submit">Sign Up</button>
-      </Link>
+      <button className="submit" onClick={sendToSignUp}>Sign Up</button>
     </div>
   );
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './SavedPage.css';
 import axios from "axios";
 import ItemList from "../../Components/ItemList/ItemList.jsx";
+import { HiOutlineSearch } from 'react-icons/hi';
 
 
 const SavedPage = ({ email, setLoggedIn }) => {
@@ -10,7 +11,27 @@ const SavedPage = ({ email, setLoggedIn }) => {
     setLoggedIn(true);
   }, [])
 
+
   const [saveList, setSaveList] = useState([]);
+  const [displayList, setDisplayList] = useState(saveList);
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  }
+
+  const handleSearch = (e) => {
+    // const regex = new RegExp(`${searchValue}`, 'g');
+    e.preventDefault();
+    setDisplayList(saveList.filter(item => {
+      let searchName = item.name.toLowerCase();
+      let searchIngredients = item.ingredients.toLowerCase();
+      let searchLower = searchValue.toLowerCase();
+      return searchName.includes(searchLower) ||
+      searchIngredients.includes(searchLower);
+    }))
+  }
+
 
   useEffect(() => {
 
@@ -34,21 +55,26 @@ const SavedPage = ({ email, setLoggedIn }) => {
     if (saveList.length === 0) {
       return 'No Saved Items.'
     } else {
-      return <ItemList title={'Saved Recipes'} data={saveList}/>
+      return <ItemList title={'Saved Recipes'} data={displayList}/>
       }
     }
 
   return (
-    <>
+  
     <div className="saveListContainer">
       <div className="saveListSearchBar">
-        Search Bar Here - Stretch Goal
+        <form onSubmit={handleSearch}>
+          <HiOutlineSearch />
+          <input placeholder="Search your saved recipes!"
+                 value={searchValue}
+                 onChange={handleChange}/>
+        </form>
       </div>
       <div className="renderSaveList">
         {renderSaveList()}
       </div>
     </div>
-    </>
+    
   )
 }
 

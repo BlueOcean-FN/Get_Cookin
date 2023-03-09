@@ -1,5 +1,6 @@
 const model = require('../models/saveRecipe.js');
 
+
 exports.getSaved = (req, res) => {
   //console.log('this is req object in controllers: ', req)
   const email = req.query.email;
@@ -21,6 +22,7 @@ exports.getSaved = (req, res) => {
       res.status(501).send(err);
     });
   };
+
 
 
 

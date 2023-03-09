@@ -8,6 +8,7 @@ import ProfilePage from './Pages/ProfilePage/ProfilePage.jsx';
 import SavedPage from './Pages/SavedPage/SavedPage.jsx';
 import NavBurger from './Components/NavBurger/NavBurger.jsx'
 import SignUpPage from './Pages/LoginPage/SignUpPage.jsx'
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/profile' element={<ProfilePage setLoggedIn={setLoggedIn} />} />
         <Route path='/saved' element={<SavedPage setLoggedIn={setLoggedIn} />} />
       </Routes>
+      { loggedIn && <Footer/> }
     </div>
   )
 }

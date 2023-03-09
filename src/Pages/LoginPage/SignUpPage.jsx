@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "./LoginPage.css";
 
@@ -8,6 +8,8 @@ const SignUp = ({ setLoggedIn }) => {
   useEffect(() => {
     setLoggedIn(false)
   }, [])
+
+  const navigate = useNavigate()
 
   const [signUpCredentials, setSignUpCredentials] = useState(
     {
@@ -18,6 +20,11 @@ const SignUp = ({ setLoggedIn }) => {
     }
   );
 
+  const sendToLogIn = (e) => {
+    e.preventDefault();
+    navigate('/login')
+  }
+
   const textHandler = (e) => {
     const input = e.target.value;
     const field = e.target.name;
@@ -27,11 +34,15 @@ const SignUp = ({ setLoggedIn }) => {
   const handleSignUp = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/signup-user', signUpCredentials)
-    .then(response => {
-      console.log(response.data);
+    .then(res => {
+      console.log(res.data);
+      localStorage.setItem('token', `Bearer ${res.data.token}`);
+      navigate('/search')
     })
     .catch(error => {
       console.log(error);
+       //receives 500 if not all credentials are made
+       //receives 400 if user already exists in db
     });
   }
 
@@ -46,31 +57,33 @@ const SignUp = ({ setLoggedIn }) => {
             name="email"
             type="text"
             autoComplete="email"
-            placeholder="email"
+            placeholder="E-mail"
             required
             onChange={textHandler}
             value={signUpCredentials.email}
           />
         </section>
         <section>
-          <label htmlFor="first">First</label>
+          <label htmlFor="first"></label>
           <input
             id="first"
             name="first"
             type="text"
             autoComplete="given-name"
+            placeholder="Your First Name"
             required
             onChange={textHandler}
             value={signUpCredentials.first}
           />
         </section>
         <section>
-          <label htmlFor="last">Last</label>
+          <label htmlFor="last"></label>
           <input
             id="last"
             name="last"
             type="text"
             autoComplete="family-name"
+            placeholder="Your Last Name"
             required
             onChange={textHandler}
             value={signUpCredentials.last}
@@ -83,16 +96,15 @@ const SignUp = ({ setLoggedIn }) => {
             name="password"
             type="password"
             autoComplete="new-password"
-            placeholder="password"
+            placeholder="Password"
             required
             onChange={textHandler}
             value={signUpCredentials.password}
           />
         </section>
-      <Link to="/search">
         <button className="submit" type="submit" onClick={handleSignUp}>Sign Up</button>
-      </Link>
       </form>
+      <button className="submit" onClick={sendToLogIn}>Log In</button>
     </div>
   );
 };
