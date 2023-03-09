@@ -9,6 +9,7 @@ img {
   width: 32%;
   align-items: center;
   border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   font-size: small;
@@ -27,6 +28,7 @@ img {
 }
 .ExpandedCard {
   width: 32%;
+  transition: height 0.3s ease;
   align-items: center;
   border-radius: 10px;
   display: flex;
@@ -154,5 +156,7 @@ img {
   width: 25%;
 }
 .recipe-name-text {
+  margin-bottom: 5px;
   margin-top: 5px;
+  max-height: 23px;
 }
