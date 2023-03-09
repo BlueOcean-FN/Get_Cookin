@@ -39,7 +39,7 @@ app.post('/logout-user', (req, res) => {
   res.send('Logged out')
 })
 
-app.post('/signup-user', findUser, addUser, (req, res) => {
+app.post('/signup-user', addUser, (req, res) => {
   console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
   res.send({ token: signed });
@@ -70,12 +70,14 @@ app.get('/autoComplete', (req, res) => {
 // })
 
 //recipe search
-// app.get('/search', recipeSearch);
+app.get('/searchrecipes', recipeSearch);
+
 //recipe saving
-// app.post('/saved', postSaved);
-// app.get('/saved', getSaved);
+// app.post('/save-recipe', postSaved);
+// app.get('/saved-recipes', getSaved);
 //user signup
 // app.post('/signup', addUser);
+
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', getAutocomplete);

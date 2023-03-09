@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const SearchBar = ({ingredients, setIngredients}) => {
+const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
 
     const [searchValue, setSearchValue] = useState('');
     const [autocomplete, setAutocomplete] = useState([]);
@@ -36,18 +36,20 @@ const SearchBar = ({ingredients, setIngredients}) => {
     }
 
     useEffect(() => {
-      clearTimeout(timer);
-      setTimer(setTimeout( async () => {
-        const words = await axios.get('http://localhost:3000/ingredientdata', {
-          headers: {
-            authorization: localStorage.getItem('token')
-          },
-          params: {
-            search: searchValue
-          }
-        })
-        setAutocomplete(words.data);
-      }, 300))
+      if (searchValue) {
+        clearTimeout(timer);
+        setTimer(setTimeout( async () => {
+          const words = await axios.get('http://localhost:3000/ingredientdata', {
+            headers: {
+              authorization: localStorage.getItem('token')
+            },
+            params: {
+              search: searchValue
+            }
+          })
+          setAutocomplete(words.data);
+        }, 300))
+      }
     }, [searchValue])
 
     return (
@@ -70,8 +72,11 @@ const SearchBar = ({ingredients, setIngredients}) => {
                            autoFocus="autofocus"
                            autoComplete="off"></input>
                 </form>
+                <form onSubmit={searchRecipes}>
+                  <button>Search!</button>
+                </form>
             </div>
-            {autocomplete.length > 0 && <div className="predictive-text">
+            {autocomplete.length > 0 && <div className="predictive-text"><div className="suggestions">Suggestions</div>
                 {autocomplete.map((item, index) => (
                   <PredictiveIngredient ingredient={item}
                                         handleClick={predictiveClick}

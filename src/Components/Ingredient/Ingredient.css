@@ -1,8 +1,11 @@
 .ingredient {
   margin: 0px 5px;
   border: 1px solid black;
-  border-radius: 12%;
-  padding: 0px 1px;
+  border-radius: 25px;
+  padding: 1px 10px;
   height: 1.5rem;
-  margin-top: 50px;
+  position: relative;
+  top: 47px;
+  margin-bottom: 10px;
+  background-color: #82a6a6;
 }

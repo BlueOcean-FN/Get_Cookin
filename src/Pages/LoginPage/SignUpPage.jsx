@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "./LoginPage.css";
 
@@ -8,6 +8,8 @@ const SignUp = ({ setLoggedIn }) => {
   useEffect(() => {
     setLoggedIn(false)
   }, [])
+
+  const navigate = useNavigate()
 
   const [signUpCredentials, setSignUpCredentials] = useState(
     {
@@ -18,6 +20,11 @@ const SignUp = ({ setLoggedIn }) => {
     }
   );
 
+  const sendToLogIn = (e) => {
+    e.preventDefault();
+    navigate('/login')
+  }
+
   const textHandler = (e) => {
     const input = e.target.value;
     const field = e.target.name;
@@ -27,11 +34,15 @@ const SignUp = ({ setLoggedIn }) => {
   const handleSignUp = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/signup-user', signUpCredentials)
-    .then(response => {
-      console.log(response.data);
+    .then(res => {
+      console.log(res.data);
+      localStorage.setItem('token', `Bearer ${res.data.token}`);
+      navigate('/search')
     })
     .catch(error => {
       console.log(error);
+       //receives 500 if not all credentials are made
+       //receives 400 if user already exists in db
     });
   }
 
@@ -91,10 +102,9 @@ const SignUp = ({ setLoggedIn }) => {
             value={signUpCredentials.password}
           />
         </section>
-      <Link to="/search">
         <button className="submit" type="submit" onClick={handleSignUp}>Sign Up</button>
-      </Link>
       </form>
+      <button className="submit" onClick={sendToLogIn}>Log In</button>
     </div>
   );
 };
