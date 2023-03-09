@@ -13,7 +13,7 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-	background-color: var(--mainColor);
+	background-color: #82a6a6;
 	color: var(--textColor);
 }
 
@@ -62,8 +62,9 @@ nav {
 		align-items: center;
 		justify-content: center;
 		gap: 1.5rem;
-		background-color: var(--mainColor);
+		background-color: #82a6a6;
 		transition: 1s;
+		z-index: 1;
 	}
 
 	header .responsive_nav {
@@ -80,3 +81,11 @@ nav {
 		font-size: 1.5rem;
 	}
 }
+
+
+	.icon {
+		width: 50%;
+		height: 50%;
+		object-fit: contain;
+		cursor: pointer;
+	}

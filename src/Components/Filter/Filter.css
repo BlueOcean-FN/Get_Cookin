@@ -1,7 +1,7 @@
 .filter {
-  margin: 0px 5px;
+  margin: 0.1rem 0.5rem;
   border: 1px solid black;
   border-radius: 12%;
-  padding: 0px 2px;
-  height: 2rem;
+  padding: 0.15rem;
+  height: 1.5rem;
 }

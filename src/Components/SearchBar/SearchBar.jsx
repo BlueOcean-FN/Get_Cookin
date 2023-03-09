@@ -13,8 +13,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
     const [autocomplete, setAutocomplete] = useState([]);
     const [timer, setTimer] = useState(null);
 
-
-
     const addIngredient = (e) => {
       e.preventDefault();
       setIngredients([...ingredients, e.target[0].value]);
@@ -48,7 +46,6 @@ const SearchBar = ({ingredients, setIngredients}) => {
             search: searchValue
           }
         })
-        console.log(words.data);
         setAutocomplete(words.data);
       }, 300))
     }, [searchValue])
@@ -64,10 +61,12 @@ const SearchBar = ({ingredients, setIngredients}) => {
                                 ingredient={ingredient}
                                 removeIngredient={removeIngredient}/>
                 ))}
-                <form onSubmit={addIngredient}>
+                <form onSubmit={addIngredient} className="search-form">
                     <input id="autoComplete"
+                           className="searchinput"
                            value={searchValue}
                            onChange={handleSearch}
+                           placeholder="enter ingredients"
                            autoFocus="autofocus"
                            autoComplete="off"></input>
                 </form>

@@ -11,15 +11,15 @@ const Card = ({ data }) => {
 
   const displayItem = (prop) => {
     let arr = [];
-    if (!expanded || prop !== 'ingredients') for (let i = 0; i < 5 && i < data[prop].length; i++) arr.push(data[prop][i]);
-    else for (let i = 0; i < 6 && i < data[prop].length; i++) arr.push(data[prop][i]);
+    if (!expanded || prop !== 'ingredients') for (let i = 0; i < 4 && i < data[prop].length; i++) arr.push(data[prop][i]);
+    else for (let i = 0; i < 5 && i < data[prop].length; i++) arr.push(data[prop][i]);
     if (arr.length < data[prop].length) arr.push('...');
     return arr;
   }
 
-  const displayVital = () => {
-    return [`serves ${data.serveSize}`, `${data.calories / data.serveSize} kcal/s`, `takes ${data.totalTime} min`];
-  }
+  console.log(data.cautions)
+
+
 
   const unExpandedCard =
     <div className="Card">
@@ -50,15 +50,15 @@ const Card = ({ data }) => {
           {displayItem('ingredients').map(txt => <li>{txt}</li>)}
         </ul>
         <div className='image-container compressed'>
-          <img src={"https://hips.hearstapps.com/del.h-cdn.co/assets/17/02/1600x800/landscape-1484246711-raw-chicken-strips.jpg?resize=640:*"} alt={"https://gfi.org/wp-content/uploads/2023/01/COR22054_webinar-graphics-business-of-alt-protein-January_header-feature.png"} />
+          <img src={data.image} alt={"https://gfi.org/wp-content/uploads/2023/01/COR22054_webinar-graphics-business-of-alt-protein-January_header-feature.png"} />
         </div>
       </div>
       <div className='extra-data'>
         <ul className='vital-data middle'>
-          {[`serves ${data.serveSize}`, `${parseInt(data.calories / data.serveSize)} kcal/s`, `takes ${data.totalTime} min`].map(txt => <li>{txt}</li>)}
+          {[`serves 3 Humans`, `${parseInt(data.calories/3)} kcal/s`, `takes ${data.totalTime} min`].map(txt => <li>{txt}</li>)}
         </ul>
         <ul className='caution-data'>
-          {displayItem('cautions').map(txt => <li>{txt}</li>)}
+        {displayItem('cautions').map(txt => <li>{txt}</li>)}
         </ul>
         <ul className='diet-data'>
           {displayItem('dietLabels').map(txt => <li>{txt}</li>)}
@@ -69,7 +69,7 @@ const Card = ({ data }) => {
       </div>
       <div className="ExpansionBlock">
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
-      <button className="show-recipe" onClick={() => window.location.href = data.url} >Show Recipe</button>
+      <button className="show-recipe"onClick={() => window.open(data.url, '_blank', 'noopener,noreferrer')} >Show Recipe</button>
 
 
       </div>
