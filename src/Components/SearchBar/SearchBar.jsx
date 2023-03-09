@@ -61,10 +61,12 @@ const SearchBar = ({ingredients, setIngredients}) => {
                                 ingredient={ingredient}
                                 removeIngredient={removeIngredient}/>
                 ))}
-                <form onSubmit={addIngredient}>
+                <form onSubmit={addIngredient} className="search-form">
                     <input id="autoComplete"
+                           className="searchinput"
                            value={searchValue}
                            onChange={handleSearch}
+                           placeholder="enter ingredients"
                            autoFocus="autofocus"
                            autoComplete="off"></input>
                 </form>
