@@ -23,7 +23,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
 
     const removeIngredient = (e) => {
         setIngredients(ingredients.filter(ingredient => {
-            return ingredient !== e.target.textContent;
+            return `${ingredient} \u2716` !== e.target.textContent;
         }));
     }
 
@@ -65,7 +65,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
                 </form>
                 {ingredients.map((ingredient, index) => (
                     <Ingredient key={index}
-                                ingredient={ingredient}
+                                ingredient={`${ingredient} \u2716`}
                                 removeIngredient={removeIngredient}/>
                 ))}
                 <form onSubmit={addIngredient} className="search-form">
