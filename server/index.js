@@ -21,9 +21,6 @@ app.use(cors());
 app.use(cookieParser());
 app.use(authenticateUser);
 
-
-
-
 // AUTHENTICATION  ===
 app.post('/login-user', findUser, (req, res) => {
   if (!req.database) return res.sendStatus(500);
