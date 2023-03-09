@@ -80,8 +80,10 @@ app.get('/savedPage', saveRecipe.getSaved);
 //user signup
 // app.post('/signup', addUser);
 
+//app.post('/savetoprofile', saveToProfile);
 
-//this is just for testing autocomplete
+//autocomplete actually needs this to work :)
+
 app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes

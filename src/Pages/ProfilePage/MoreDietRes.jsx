@@ -4,9 +4,9 @@ import IndivDietRes from './IndivDietRes.jsx';
 import { ImCross } from 'react-icons/im';
 import axios from 'axios';
 
-const MoreDietaryRes = () => {
+const MoreDietaryRes = ({ingredients, addRestriction, removeRestriction, addAutocompleteRestriction}) => {
   const [moreRestriction, setMoreRestriction] = useState('');
-  const [ingredients, setIngredients] = useState([]);
+  // const [ingredients, setIngredients] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [text, setText] = useState('');
 
@@ -17,22 +17,23 @@ const MoreDietaryRes = () => {
     });
   }
 
-  const addRestrictions = (e) => {
-    e.preventDefault();
-    setIngredients([...ingredients, e.target[0].value]);
-    setMoreRestriction('');
-  }
+  // const addRestrictions = (e) => {
+  //   e.preventDefault();
+  //   setIngredients([...ingredients, e.target[0].value]);
+  //   setMoreRestriction('');
+  // }
 
-  const removeRestrictions = (e) => {
-    setIngredients(ingredients.filter(ingredient => {
-      return ingredient !== e.target.textContent;
-    }))
-  }
+  // const removeRestrictions = (e) => {
+  //   setIngredients(ingredients.filter(ingredient => {
+  //     return ingredient !== e.target.textContent;
+  //   }))
+  // }
 
   const suggestHandler = (text) =>{
     setMoreRestriction(text);
     setSuggestions([]);
-    setIngredients([...ingredients, text]);
+    // setIngredients([...ingredients, text]);
+    addAutocompleteRestriction(text);
     setMoreRestriction('');
   }
 
@@ -40,10 +41,10 @@ const MoreDietaryRes = () => {
     <div className='moreDietRes'>
       <ImCross/>
       {ingredients.map((ingredient, index) => (
-        <IndivDietRes key={index} ingredient={ingredient} removeRestrictions={removeRestrictions}/>
+        <IndivDietRes key={index} ingredient={ingredient} removeRestriction={removeRestriction}/>
       ))}
-      <form onSubmit={addRestrictions}>
-        <input className='inputContainer' id='auto' onfocus='pokemon' placeholder='add more restrictions'  value={moreRestriction} onChange={(e) => {
+      <form onSubmit={addRestriction}>
+        <input className='inputContainer' id='auto' autoComplete="off"  placeholder='add more restrictions'  value={moreRestriction} onChange={(e) => {
           setMoreRestriction(e.target.value)
           edamamApi(e.target.value)
         }}/>

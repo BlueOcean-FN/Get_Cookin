@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './IndivDietRes.css';
 
-const IndivDietRes = ({ingredient, removeRestrictions}) => {
+const IndivDietRes = ({ingredient, removeRestriction}) => {
   return (
-    <span className='indivRes' onClick={removeRestrictions}>{ingredient}</span>
+    <span className='indivRes' onClick={removeRestriction}>{ingredient}</span>
   )
 }
 
