@@ -12,7 +12,8 @@ const autoComplete_URL = process.env.AUTOCOMPLETE_API_URL;
 
 const { authenticateUser } = require('./middleware.js');
 const { addUser, findUser, getAutocomplete, getSaved, postSaved, recipeSearch } = require('./controllers');
-
+const saveToProfile = require('./controllers/saveToProfile');
+const getProfile = require('./controllers/getProfile');
 app.use(express.static(path.join(__dirname, '../dist')));
 
 
@@ -74,13 +75,15 @@ app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
 
-app.post('/savedPage', saveRecipe.postSaved);
-app.get('/savedPage', saveRecipe.getSaved);
+app.post('/savedPage', postSaved);
+app.get('/savedPage', getSaved);
 
 //user signup
 // app.post('/signup', addUser);
 
-//app.post('/savetoprofile', saveToProfile);
+app.post('/savetoprofile', saveToProfile);
+
+app.get('/getprofile', getProfile);
 
 //autocomplete actually needs this to work :)
 
