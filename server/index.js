@@ -32,6 +32,11 @@ app.post('/login-user', findUser, (req, res) => {
   res.send({ token: signed });
 })
 
+app.post('/logout-user', (req, res) => {
+  res.cookie('token', '', { expires: new Date(0), path: '/' });
+  res.send('Logged out')
+})
+
 app.post('/signup-user', findUser, addUser, (req, res) => {
   console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
@@ -71,7 +76,7 @@ app.get('/autoComplete', (req, res) => {
 // app.post('/signup', addUser);
 
 //this is just for testing autocomplete
-// app.get('/ingredientdata', getAutocomplete);
+app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes
 app.get('*', (req, res) => {
