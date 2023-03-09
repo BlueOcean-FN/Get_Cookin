@@ -15,8 +15,13 @@ const { addUser, findUser, getAutocomplete, getSaved, postSaved, recipeSearch } 
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.use(cors());
+app.use(express.json());
 app.use(cookieParser());
 app.use(authenticateUser);
 
@@ -76,8 +81,10 @@ app.get('/savedPage', getSaved);
 //user signup
 // app.post('/signup', addUser);
 
+//app.post('/savetoprofile', saveToProfile);
 
-//this is just for testing autocomplete
+//autocomplete actually needs this to work :)
+
 app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes

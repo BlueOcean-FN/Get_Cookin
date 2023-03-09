@@ -29,7 +29,7 @@ module.exports.authenticateUser = (req, res, next) => {
     req.user_id = decodedToken.id;
     next();
   } catch (error) {
-    console.log('there was an error after decoding, so go to login')
+    console.log('there was an error after decoding, so go to login', error)
     return res.redirect('/');
   }
 };
