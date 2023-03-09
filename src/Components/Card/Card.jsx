@@ -5,7 +5,7 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import './Card.css';
 
 const Card = ({ data }) => {
-  console.log(data)
+  console.log('this is data in Card: ', data);
 
   const [cardImage, setCardImage] = useState(null);
   const [expanded, setExpanded] = useState(false);
@@ -19,6 +19,25 @@ const Card = ({ data }) => {
   }
 
   console.log(data.cautions)
+
+  const handleSave = function() {
+    axios.post('http://localhost:3000/savedPage',
+    {
+      email: localStorage.getItem('email'),
+      type: 'saved',
+      name: data.label,
+      url: data.url,
+      image_url: data.image
+    },
+    {
+      headers: {authorization: localStorage.getItem('token')},
+    })
+    .then(function (response) {
+    })
+    .catch(function (error) {
+      console.log('Axios error in Card handleSave function', error);
+    })
+  }
 
 
 
@@ -71,6 +90,7 @@ const Card = ({ data }) => {
       <div className="ExpansionBlock">
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
       <button className="show-recipe"onClick={() => window.open(data.url, '_blank', 'noopener,noreferrer')} >Show Recipe</button>
+      <button className="save-recipe" onClick={handleSave} >Save Recipe</button>
 
 
       </div>

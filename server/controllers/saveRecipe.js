@@ -25,11 +25,12 @@ exports.getSaved = (req, res) => {
 
 
 exports.postSaved = (req, res) => {
-  const email = req.params.email;
-  const type = req.params.type;
-  const name = req.params.name;
-  const url = req.params.url;
-  const image_url = req.params.image_url
+
+  const email = req.body.email;
+  const type = req.body.type;
+  const name = req.body.name;
+  const url = req.body.url;
+  const image_url = req.body.image_url
 
   const usersQueryObject = {email};
   const recipesQueryObject = {name, url, image_url};
