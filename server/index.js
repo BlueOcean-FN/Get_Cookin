@@ -32,7 +32,7 @@ app.post('/login-user', findUser, (req, res) => {
   res.send({ token: signed });
 })
 
-app.post('/signup-user', findUser, addUser, (req, res) => {
+app.post('/signup-user', addUser, (req, res) => {
   console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
   res.send({ token: signed });
@@ -66,8 +66,8 @@ app.get('/autoComplete', (req, res) => {
 app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
-// app.post('/saved', postSaved);
-// app.get('/saved', getSaved);
+// app.post('/save-recipe', postSaved);
+// app.get('/saved-recipes', getSaved);
 //user signup
 // app.post('/signup', addUser);
 

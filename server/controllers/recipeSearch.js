@@ -1,6 +1,9 @@
 const axios = require('axios');
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 
 const recipeSearch = (req, res) => {
+
   let queryString = `https://api.edamam.com/api/recipes/v2/?app_id=${process.env.RECIPE_ID}&app_key=${process.env.RECIPE_KEY}&type=public`
   for (let ingredient of req.query.q) {
     queryString += `&q=${ingredient}`;
@@ -28,6 +31,7 @@ const recipeSearch = (req, res) => {
     }
     res.send(JSON.stringify(resultArray));
   })
+  .catch(err => console.log('err happened'))
 }
 
 module.exports = recipeSearch;
