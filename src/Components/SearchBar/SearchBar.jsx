@@ -36,18 +36,20 @@ const SearchBar = ({ingredients, setIngredients}) => {
     }
 
     useEffect(() => {
-      clearTimeout(timer);
-      setTimer(setTimeout( async () => {
-        const words = await axios.get('http://localhost:3000/ingredientdata', {
-          headers: {
-            authorization: localStorage.getItem('token')
-          },
-          params: {
-            search: searchValue
-          }
-        })
-        setAutocomplete(words.data);
-      }, 300))
+      if (searchValue) {
+        clearTimeout(timer);
+        setTimer(setTimeout( async () => {
+          const words = await axios.get('http://localhost:3000/ingredientdata', {
+            headers: {
+              authorization: localStorage.getItem('token')
+            },
+            params: {
+              search: searchValue
+            }
+          })
+          setAutocomplete(words.data);
+        }, 300))
+      }
     }, [searchValue])
 
     return (

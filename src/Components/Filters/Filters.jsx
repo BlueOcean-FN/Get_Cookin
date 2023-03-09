@@ -33,18 +33,20 @@ const Filters = ({filters, setFilters}) => {
   }
 
   useEffect(() => {
-    clearTimeout(timer);
-    setTimer(setTimeout( async () => {
-      const words = await axios.get('http://localhost:3000/ingredientdata', {
-        headers: {
-          authorization: localStorage.getItem('token')
-        },
-        params: {
-          search: newFilter
-        }
-      })
-      setFilterAuto(words.data);
-    }, 300))
+    if (newFilter) {
+      clearTimeout(timer);
+      setTimer(setTimeout( async () => {
+        const words = await axios.get('http://localhost:3000/ingredientdata', {
+          headers: {
+            authorization: localStorage.getItem('token')
+          },
+          params: {
+            search: newFilter
+          }
+        })
+        setFilterAuto(words.data);
+      }, 300))
+    }
   }, [newFilter])
 
   return (
