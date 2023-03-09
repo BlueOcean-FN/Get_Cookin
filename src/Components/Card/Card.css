@@ -9,6 +9,7 @@ img {
   width: 32%;
   align-items: center;
   border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   font-size: small;
@@ -17,16 +18,17 @@ img {
   -webkit-box-shadow: 0px 5px 20px 2px rgba(117, 117, 117, 1);
   -moz-box-shadow: 0px 5px 20px 2px rgba(117, 117, 117, 1);
   box-shadow: 0px 5px 20px 2px rgba(117, 117, 117, 1);
-  
+
 }
 .Card:hover {
-  transform: translate3D(0,-1px,0) scale(1.03); 
+  transform: translate3D(0,-1px,0) scale(1.03);
 }
 .ExpandedCard:hover {
   transform: translate3D(0,-1px,0) scale(1.03);
 }
 .ExpandedCard {
   width: 32%;
+  transition: height 0.3s ease;
   align-items: center;
   border-radius: 10px;
   display: flex;
@@ -36,11 +38,13 @@ img {
   -webkit-box-shadow: 0px 5px 33px 2px rgba(117, 117, 117, 1);
   -moz-box-shadow: 0px 5px 33px 2px rgba(117, 117, 117, 1);
   box-shadow: 0px 5px 33px 2px rgba(117, 117, 117, 1);
-  
+
 }
+
 .ExpandedCard .middle-bar {
   height: 200px;
 }
+
 .card-interactions {
   margin-bottom: 5px;
 }
@@ -60,9 +64,17 @@ img {
   .show-recipe {
     position: absolute;
   }
-  .ExpansionBlock {
-   
+
+  .save-recipe {
+    white-space: nowrap;
+    text-align: center;
+    margin-left: 229px;
+    padding: 0px;
   }
+}
+
+.save-recipe {
+  margin-left: 229px;
 }
 
 .caution-data {
@@ -143,7 +155,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #B73E3E;
+  background-color: #82a6a6;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 100%;
@@ -154,5 +166,7 @@ img {
   width: 25%;
 }
 .recipe-name-text {
+  margin-bottom: 5px;
   margin-top: 5px;
+  max-height: 23px;
 }
