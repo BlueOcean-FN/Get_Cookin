@@ -44,6 +44,7 @@ const SavedPage = ({ email, setLoggedIn }) => {
     })
     .then(function (response) {
       setSaveList(response.data);
+      setDisplayList(response.data);
     })
     .catch(function (error) {
       console.log('Axios error in SavedPage useEffect', error);
@@ -60,7 +61,7 @@ const SavedPage = ({ email, setLoggedIn }) => {
     }
 
   return (
-  
+
     <div className="saveListContainer">
       <div className="saveListSearchBar">
         <form onSubmit={handleSearch}>
@@ -74,7 +75,7 @@ const SavedPage = ({ email, setLoggedIn }) => {
         {renderSaveList()}
       </div>
     </div>
-    
+
   )
 }
 
