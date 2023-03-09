@@ -71,8 +71,8 @@ app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
 
-app.post('/savedPage', saveRecipe.postSaved);
-app.get('/savedPage', saveRecipe.getSaved);
+app.post('/savedPage', postSaved);
+app.get('/savedPage', getSaved);
 
 //user signup
 // app.post('/signup', addUser);
