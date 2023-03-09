@@ -17,7 +17,6 @@ const Card = ({ data }) => {
     return arr;
   }
 
-  // console.log(data.cautions)
 
 
 
