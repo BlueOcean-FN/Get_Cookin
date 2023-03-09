@@ -3,10 +3,8 @@
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
-  min-height: 15rem;
-  width: 80%;
-  margin: 0 auto;
+  min-height: 3.5rem;
+  margin: 0 auto 1rem auto;
 }
 .SearchPage {
   display: flex;
@@ -22,19 +20,30 @@
   min-height: 50%;
   justify-content: center;
   align-content: flex-start;
-  border-bottom: 1px solid black;
   flex-grow: 1;
+  margin-bottom: 28px;
 }
 
 .search-bar svg {
   display: none;
 }
 
+.suggestions {
+  margin: 0.5rem;
+  border-radius: 15%;
+  height: 1.5rem;
+}
+
 .predictive-text {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .search-form {

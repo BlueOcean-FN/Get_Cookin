@@ -14,12 +14,14 @@ const { authenticateUser } = require('./middleware.js');
 const { addUser, findUser, getAutocomplete, getSaved, postSaved, recipeSearch } = require('./controllers');
 
 app.use(express.static(path.join(__dirname, '../dist')));
-app.use(cors());
+
 
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(authenticateUser);
+
+
 
 
 // AUTHENTICATION  ===
@@ -30,6 +32,11 @@ app.post('/login-user', findUser, (req, res) => {
   console.log(req.database.id, signed);
   res.cookie('token', signed, {httpOnly: true});
   res.send({ token: signed });
+})
+
+app.post('/logout-user', (req, res) => {
+  res.cookie('token', '', { expires: new Date(0), path: '/' });
+  res.send('Logged out')
 })
 
 app.post('/signup-user', addUser, (req, res) => {
@@ -63,15 +70,17 @@ app.get('/autoComplete', (req, res) => {
 // })
 
 //recipe search
-// app.get('/search', recipeSearch);
+app.get('/searchrecipes', recipeSearch);
+
 //recipe saving
 // app.post('/save-recipe', postSaved);
 // app.get('/saved-recipes', getSaved);
 //user signup
 // app.post('/signup', addUser);
 
+
 //this is just for testing autocomplete
-// app.get('/ingredientdata', getAutocomplete);
+app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes
 app.get('*', (req, res) => {
