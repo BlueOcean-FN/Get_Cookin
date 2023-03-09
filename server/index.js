@@ -73,12 +73,13 @@ app.get('/autoComplete', (req, res) => {
 // })
 
 //recipe search
-app.get('/search', recipeSearch);
+app.get('/searchrecipes', recipeSearch);
 //recipe saving
 app.post('/saved', saveRecipe.postSaved);
 app.get('/saved', saveRecipe.getSaved);
 //user signup
 app.post('/signup', addUser);
+
 
 //this is just for testing autocomplete
 app.get('/ingredientdata', getAutocomplete);

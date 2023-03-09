@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import './CardList.css';
 import Card from '../Card/Card.jsx';
 import exampleData from './exampledata'
-const CardList = (props) => {
+const CardList = ({cards}) => {
 
-  const [cards, setCards] = useState(exampleData)
+  // const [cards, setCards] = useState({exampleData})
 
   const cardList = cards.map((data) => {
     for (let i = 0; i < data.recipe.ingredients.length; i++) {
@@ -53,7 +53,7 @@ const CardList = (props) => {
 
     return (
         <div className="CardList">
-     
+
           {cardList}
         </div>
     )

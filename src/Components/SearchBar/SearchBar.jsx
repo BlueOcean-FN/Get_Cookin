@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const SearchBar = ({ingredients, setIngredients}) => {
+const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
 
     const [searchValue, setSearchValue] = useState('');
     const [autocomplete, setAutocomplete] = useState([]);
@@ -67,6 +67,9 @@ const SearchBar = ({ingredients, setIngredients}) => {
                            onChange={handleSearch}
                            autoFocus="autofocus"
                            autoComplete="off"></input>
+                </form>
+                <form onSubmit={searchRecipes}>
+                  <button>Search!</button>
                 </form>
             </div>
             {autocomplete.length > 0 && <div className="predictive-text">
