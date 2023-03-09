@@ -9,3 +9,7 @@
   margin-bottom: 10px;
   background-color: #82a6a6;
 }
+
+.ingredient:hover > div {
+  background-color: white;
+}
