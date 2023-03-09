@@ -15,9 +15,13 @@ const { addUser, findUser, getAutocomplete, getSaved, postSaved, recipeSearch } 
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(cookieParser());
 app.use(authenticateUser);
 
