@@ -14,12 +14,14 @@ const { authenticateUser } = require('./middleware.js');
 const { addUser, findUser, getAutocomplete, getSaved, postSaved, recipeSearch } = require('./controllers');
 
 app.use(express.static(path.join(__dirname, '../dist')));
-app.use(cors());
+
 
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(authenticateUser);
+
+
 
 
 // AUTHENTICATION  ===
