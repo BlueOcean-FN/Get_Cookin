@@ -46,31 +46,33 @@ const SignUp = ({ setLoggedIn }) => {
             name="email"
             type="text"
             autoComplete="email"
-            placeholder="email"
+            placeholder="E-mail"
             required
             onChange={textHandler}
             value={signUpCredentials.email}
           />
         </section>
         <section>
-          <label htmlFor="first">First</label>
+          <label htmlFor="first"></label>
           <input
             id="first"
             name="first"
             type="text"
             autoComplete="given-name"
+            placeholder="Your First Name"
             required
             onChange={textHandler}
             value={signUpCredentials.first}
           />
         </section>
         <section>
-          <label htmlFor="last">Last</label>
+          <label htmlFor="last"></label>
           <input
             id="last"
             name="last"
             type="text"
             autoComplete="family-name"
+            placeholder="Your Last Name"
             required
             onChange={textHandler}
             value={signUpCredentials.last}
@@ -83,7 +85,7 @@ const SignUp = ({ setLoggedIn }) => {
             name="password"
             type="password"
             autoComplete="new-password"
-            placeholder="password"
+            placeholder="Password"
             required
             onChange={textHandler}
             value={signUpCredentials.password}
