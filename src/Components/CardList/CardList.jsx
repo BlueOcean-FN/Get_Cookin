@@ -3,21 +3,21 @@ import React, { useState, useEffect } from 'react';
 import './CardList.css';
 import Card from '../Card/Card.jsx';
 import exampleData from './exampledata'
-const CardList = (props) => {
+const CardList = ({cards}) => {
 
-  const [cards, setCards] = useState(exampleData)
+  // const [cards, setCards] = useState({exampleData})
 
   const cardList = cards.map((data) => {
-    for (let i = 0; i < data.recipe.ingredients.length; i++) {
-      if (data.recipe.ingredients[i].text) {
-      data.recipe.ingredients[i] = data.recipe.ingredients[i].text
+    for (let i = 0; i < data.ingredients.length; i++) {
+      if (data.ingredients[i].text) {
+      data.ingredients[i] = data.ingredients[i].text
       }
     }
-    if (data.recipe.cautions.length === 0) {
-      data.recipe.cautions.push("No Cautions")
+    if (data.cautions.length === 0) {
+      data.cautions.push("No Cautions")
     }
     return (
-  <Card data={data.recipe} key={data.recipe.url}/>
+  <Card data={data} key={data.url}/>
     )
 })
 
@@ -53,7 +53,7 @@ const CardList = (props) => {
 
     return (
         <div className="CardList">
-     
+
           {cardList}
         </div>
     )
