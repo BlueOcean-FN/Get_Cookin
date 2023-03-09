@@ -4,6 +4,8 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken')
 const path = require('path');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
+
 
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
@@ -24,19 +26,22 @@ const getAutocomplete = require('./controllers/getAutocomplete.js');
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 app.use(authenticateUser);
+
 
 // AUTHENTICATION  ===
 app.post('/login-user', (req, res) => {
   let tempUser = searchTempUserStorage(req.body);
   if(!tempUser) return res.sendStatus(401)
   const signed = jwt.sign({ id: tempUser.id }, process.env.JWT_SECRET);
-  console.log(tempUser.id, signed);
+  res.cookie('token', signed, {httpOnly: true});
   res.send({ token: signed });
 })
 
+
 app.post('/signup-user', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   if (req.body.email && req.body.first && req.body.last && req.body.password) {
     req.body.id = tempUserStorage.length + 1;
     tempUserStorage.push(req.body);
@@ -45,18 +50,20 @@ app.post('/signup-user', (req, res) => {
   }
 
   const signed = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
-  console.log(req.body.id, signed);
+  // console.log(req.body.id, signed);
   res.send({ token: signed });
 })
+
+
 app.get('/testroute', (req, res) => {
-  console.log(req.user_id && req.user_id);
+  // console.log(req.user_id && req.user_id);
   res.send('yo');
 })
 
 // /AUTHENTICATION ^^^
 
 app.get('/autoComplete', (req, res) => {
-  console.log('Inside get of autoComplete');
+  // console.log('Inside get of autoComplete');
   let userInput = req.query.q;
   axios.get(`${autoComplete_URL}&q=${userInput}&limit=6`)
   .then(({data}) => {
@@ -73,10 +80,10 @@ app.get('/autoComplete', (req, res) => {
 // })
 
 //recipe search
-app.get('/search', recipeSearch);
+// app.get('/search', recipeSearch);
 //recipe saving
-app.post('/saved', saveRecipe.postSaved);
-app.get('/saved', saveRecipe.getSaved);
+// app.post('/saved', saveRecipe.postSaved);
+// app.get('/saved', saveRecipe.getSaved);
 //user signup
 app.post('/signup', addUser);
 
@@ -87,6 +94,8 @@ app.get('/ingredientdata', getAutocomplete);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
 });
+
+
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)
