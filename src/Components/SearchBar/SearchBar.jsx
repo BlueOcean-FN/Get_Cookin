@@ -74,7 +74,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
                   <button>Search!</button>
                 </form>
             </div>
-            {autocomplete.length > 0 && <div className="predictive-text">
+            {autocomplete.length > 0 && <div className="predictive-text"><div className="suggestions">Suggestions</div>
                 {autocomplete.map((item, index) => (
                   <PredictiveIngredient ingredient={item}
                                         handleClick={predictiveClick}
