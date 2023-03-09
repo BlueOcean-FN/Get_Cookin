@@ -2,6 +2,7 @@ import { useRef } from "react";
 import {FaBars, FaTimes} from 'react-icons/fa'
 import { Link } from "react-router-dom"
 import './NavBurger.css'
+import icon from './logo.jpeg';
 
 const NavBurger = () => {
   const navRef = useRef();
@@ -16,7 +17,7 @@ const NavBurger = () => {
 
   return (
     <header>
-      <h3>LOGO</h3>
+      <h3><img className="icon" src={icon}></img></h3>
       <nav ref={navRef}>
 
         <Link to="/search" onClick={showNavbar}>Home</Link>
