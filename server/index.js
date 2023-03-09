@@ -70,8 +70,10 @@ app.get('/autoComplete', (req, res) => {
 app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
-// app.post('/save-recipe', postSaved);
-// app.get('/saved-recipes', getSaved);
+
+app.post('/savedPage', saveRecipe.postSaved);
+app.get('/savedPage', saveRecipe.getSaved);
+
 //user signup
 // app.post('/signup', addUser);
 
