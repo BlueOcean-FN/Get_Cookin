@@ -21,9 +21,6 @@ app.use(cors());
 app.use(cookieParser());
 app.use(authenticateUser);
 
-
-
-
 // AUTHENTICATION  ===
 app.post('/login-user', findUser, (req, res) => {
   if (!req.database) return res.sendStatus(500);
@@ -74,8 +71,8 @@ app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
 
-app.post('/savedPage', saveRecipe.postSaved);
-app.get('/savedPage', saveRecipe.getSaved);
+app.post('/savedPage', postSaved);
+app.get('/savedPage', getSaved);
 
 //user signup
 // app.post('/signup', addUser);
@@ -90,8 +87,6 @@ app.get('/ingredientdata', getAutocomplete);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
 });
-
-
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)

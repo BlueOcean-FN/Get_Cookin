@@ -40,6 +40,7 @@ header .nav-btn {
 }
 
 header div,
+
 nav {
 	display: flex;
 	align-items: center;
