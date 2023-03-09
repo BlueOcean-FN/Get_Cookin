@@ -44,6 +44,7 @@ img {
 .ExpandedCard .middle-bar {
   height: 200px;
 }
+
 .card-interactions {
   margin-bottom: 5px;
 }
@@ -75,7 +76,6 @@ img {
 .save-recipe {
   margin-left: 229px;
 }
-
 
 .caution-data {
   border-right: 1px solid lightgray;
