@@ -1,10 +1,14 @@
 const model = require('../models/saveRecipe.js');
 
-module.exports.getSaved = (req, res) => {
-  const user_id = req.params.user_id;
-  const type = req.params.type;
 
-  model.getSaved(user_id, type)
+exports.getSaved = (req, res) => {
+  //console.log('this is req object in controllers: ', req)
+  const email = req.query.email;
+  const type = req.query.type;
+
+  const query = {email, type};
+
+  model.getSaved(query)
   .then((result) => {
       const allRecords = result.rows;
       const resultArray = [];
@@ -14,39 +18,50 @@ module.exports.getSaved = (req, res) => {
       res.status(200).send(resultArray);
     })
     .catch((err) => {
+      console.log(err);
       res.status(501).send(err);
     });
   };
 
-module.exports.postSaved = (req, res) => {
-  const user_id = req.params.user_id;
-  const recipe_id = req.params.recipe_id;
-  const type = req.params.type;
-  const url = req.params.url;
-  const name = req.params.name;
-  const date = req.params.date;
 
-  const queryObject = {user_id, recipe_id, type, url, name, date}
 
-  model.postSaved(queryObject)
+
+exports.postSaved = (req, res) => {
+
+  const email = req.body.email;
+  const type = req.body.type;
+  const name = req.body.name;
+  const url = req.body.url;
+  const image_url = req.body.image_url
+
+  const usersQueryObject = {email};
+  const recipesQueryObject = {name, url, image_url};
+  const users_recipesQueryObject = {type};
+
+  model.postSaved(usersQueryObject, recipesQueryObject,users_recipesQueryObject)
   .then((response) => {
-      res.status(200).send(response);
+    res.status(200).send(response);
     })
-    .catch((err) => {
+  .catch((err) => {
       res.status(501).send(err);
     });
   };
 
-  // exports.saveRecipe = (req, res) => {
-//   db.query(`SELECT id FROM users WHERE email=${req.body.email}`, (err, res_ => {
-//     if (err) {
-//       console.log(err);
-//       res.send(500);
-//     }
-//     const user_id = res.rows[0];
-//     const text = 'INSERT INTO recipes(name, url, image_url) VALUES($1, $2, $3)';
-//     const values = [req.body.name,
-//                     req.body.url,
-//                     req.body.image_url]
-//   }))
-// }
+
+  //Below are functions/queries used for testing.
+
+  // INSERT INTO users (hash, email, first, last, exclusions, lifestyle) VALUES('andhisson', 'bryce', 'hey', 'yo', 'none', 'none');
+
+  // exports.postSaved({params: {
+  //   email: 'bryce',
+  //   type: 'saved',
+  //   name: 'unethical chicken',
+  //   url: 'http://www.zaxbys.com',
+  //   image_url: 'http://www.churchs.com'
+  // }});
+
+    // exports.getSaved({params: {
+  //   email: 'bryce',
+  //   type: 'saved'
+  // }});
+
