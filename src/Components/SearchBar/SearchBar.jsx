@@ -15,8 +15,10 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
 
     const addIngredient = (e) => {
       e.preventDefault();
-      setIngredients([...ingredients, e.target[0].value]);
-      setSearchValue('');
+      if (autocomplete.indexOf(e.target[0].value) !== -1) {
+        setIngredients([...ingredients, e.target[0].value]);
+        setSearchValue('');
+      }
     }
 
     const removeIngredient = (e) => {
