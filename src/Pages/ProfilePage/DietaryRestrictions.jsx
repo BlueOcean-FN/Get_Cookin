@@ -72,6 +72,7 @@ const DietaryRestrictions = ({loaded}) => {
   const saveToProfile = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
+
     const decode = jwtDecode(token);
     axios.post('http://localhost:3000/savetoprofile',{
       headers: {
@@ -110,6 +111,7 @@ const DietaryRestrictions = ({loaded}) => {
       setEmail(personalInfo.email);
     })
   }, [loaded]);
+
 
   console.log(first, last, email)
   return (

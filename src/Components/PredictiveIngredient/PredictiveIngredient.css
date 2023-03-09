@@ -1,7 +1,13 @@
 .predictive-word {
-  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px 5px;
   border: 1px solid black;
-  border-radius: 15%;
+  border-radius: 25px;
+  padding: 1px 10px;
   height: 1.5rem;
+  position: relative;
+  margin-bottom: 10px;
   background-color: #82a6a6;
 }

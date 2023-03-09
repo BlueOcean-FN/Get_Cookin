@@ -16,14 +16,15 @@ const saveToProfile = require('./controllers/saveToProfile');
 const getProfile = require('./controllers/getProfile');
 app.use(express.static(path.join(__dirname, '../dist')));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(cookieParser());
 app.use(authenticateUser);
-
-
-
 
 // AUTHENTICATION  ===
 app.post('/login-user', findUser, (req, res) => {
@@ -93,8 +94,6 @@ app.get('/ingredientdata', getAutocomplete);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
 });
-
-
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)

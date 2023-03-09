@@ -15,13 +15,15 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
 
     const addIngredient = (e) => {
       e.preventDefault();
-      setIngredients([...ingredients, e.target[0].value]);
-      setSearchValue('');
+      if (autocomplete.indexOf(e.target[0].value) !== -1) {
+        setIngredients([...ingredients, e.target[0].value]);
+        setSearchValue('');
+      }
     }
 
     const removeIngredient = (e) => {
         setIngredients(ingredients.filter(ingredient => {
-            return ingredient !== e.target.textContent;
+            return `${ingredient} \u2716` !== e.target.textContent;
         }));
     }
 
@@ -34,7 +36,6 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
       setSearchValue('');
       setAutocomplete([]);
     }
-
     useEffect(() => {
       if (searchValue) {
         clearTimeout(timer);
@@ -49,6 +50,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
           })
           setAutocomplete(words.data);
         }, 300))
+        console.log(autocomplete)
       }
     }, [searchValue])
 
@@ -58,9 +60,12 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
         <div className="search-bar-container">
             <div className="search-bar">
                 <HiOutlineSearch />
+                <form onSubmit={searchRecipes}>
+                  <button>Search!</button>
+                </form>
                 {ingredients.map((ingredient, index) => (
                     <Ingredient key={index}
-                                ingredient={ingredient}
+                                ingredient={`${ingredient} \u2716`}
                                 removeIngredient={removeIngredient}/>
                 ))}
                 <form onSubmit={addIngredient} className="search-form">
@@ -71,9 +76,6 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
                            placeholder="enter ingredients"
                            autoFocus="autofocus"
                            autoComplete="off"></input>
-                </form>
-                <form onSubmit={searchRecipes}>
-                  <button>Search!</button>
                 </form>
             </div>
             {autocomplete.length > 0 && <div className="predictive-text"><div className="suggestions">Suggestions</div>
