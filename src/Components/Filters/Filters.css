@@ -1,10 +1,9 @@
 .filters-container {
   display: flex;
-  /* justify-content: center; */
   flex-direction: column;
   align-items: center;
-  min-height: 3.5rem;
   margin: 0px auto 0.5rem auto;
+  margin-top: 22.5px
 }
 
 .filters-predictive-container {
