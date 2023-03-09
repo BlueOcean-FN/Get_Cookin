@@ -4,6 +4,8 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken')
 const path = require('path');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
+
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const port = 3000;
 const autoComplete_URL = process.env.AUTOCOMPLETE_API_URL;
@@ -16,6 +18,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 app.use(authenticateUser);
 
 
@@ -35,14 +38,14 @@ app.post('/signup-user', findUser, addUser, (req, res) => {
 })
 
 app.get('/testroute', (req, res) => {
-  console.log(req.user_id && req.user_id);
+  // console.log(req.user_id && req.user_id);
   res.send('yo');
 })
 // /AUTHENTICATION ^^^
 
 
 app.get('/autoComplete', (req, res) => {
-  console.log('Inside get of autoComplete');
+  // console.log('Inside get of autoComplete');
   let userInput = req.query.q;
   axios.get(`${autoComplete_URL}&q=${userInput}&limit=6`)
   .then(({data}) => {
@@ -73,6 +76,8 @@ app.get('/autoComplete', (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
 });
+
+
 
 app.listen(port, () => {
   console.log(`We are cookin' on port ${port}`)

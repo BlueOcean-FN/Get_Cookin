@@ -27,11 +27,11 @@ const Login = ({ setLoggedIn }) => {
     const field = e.target.name
     setLoginCredentials({...loginCredentials, [field]: input})
   }
+
   const handleLogin = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/login-user', loginCredentials)
     .then(res => {
-      console.log(res);
       localStorage.setItem('token', `Bearer ${res.data.token}`);
       navigate(`/search`);
     })
