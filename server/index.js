@@ -71,9 +71,10 @@ app.get('/searchrecipes', recipeSearch);
 //user signup
 // app.post('/signup', addUser);
 
+//app.post('/savetoprofile', saveToProfile);
 
-//this is just for testing autocomplete
-// app.get('/ingredientdata', getAutocomplete);
+//autocomplete actually needs this to work :)
+app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes
 app.get('*', (req, res) => {
