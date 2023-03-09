@@ -6,14 +6,17 @@ const recipeSearch = (req, res) => {
 
   let queryString = `https://api.edamam.com/api/recipes/v2/?app_id=${process.env.RECIPE_ID}&app_key=${process.env.RECIPE_KEY}&type=public`
   if (req.query.q) {
+    queryString += '&q='
     for (let ingredient of req.query.q) {
-      queryString += `&q=${ingredient}`;
+      queryString+=  `${ingredient}, `;
     }
+    queryString = queryString.slice(0, -2)
   }
   if (req.query.excluded) {
     for (let filter of req.query.excluded) {
-      queryString += `&excluded=${filter}`;
+      queryString +=`&excluded=${filter}`;
     }
+
   }
   axios(queryString)
     .then(results => {
