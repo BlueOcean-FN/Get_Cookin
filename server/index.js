@@ -28,6 +28,7 @@ app.post('/login-user', findUser, (req, res) => {
   console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
   console.log(req.database.id, signed);
+  res.cookie('token', signed, {httpOnly: true});
   res.send({ token: signed });
 })
 
