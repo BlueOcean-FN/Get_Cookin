@@ -63,13 +63,13 @@ const DietaryRestrictions = () => {
     setIsChecked({...isChecked, exclusions: newExclusions})
   }
 
-  // const saveToProfile = (e) => {
-  //   e.preventDefault();
-  //   const token = localStorage.getItem('token');
-  //   const decode = jwt.decode(token);
-  //   console.log(decode);
-  //   // axios.post('')
-  // }
+  const saveToProfile = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+    const decode = jwt.decode(token);
+    console.log(decode);
+    // axios.post('')
+  }
 
   return (
   <div class="dietaryRestrictions">
