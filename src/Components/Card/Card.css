@@ -39,6 +39,8 @@ img {
   -moz-box-shadow: 0px 5px 33px 2px rgba(117, 117, 117, 1);
   box-shadow: 0px 5px 33px 2px rgba(117, 117, 117, 1);
 
+}
+
 .ExpandedCard .middle-bar {
   height: 200px;
 }
@@ -61,10 +63,19 @@ img {
   .show-recipe {
     position: absolute;
   }
-  
-  .ExpansionBlock {
 
+  .save-recipe {
+    white-space: nowrap;
+    text-align: center;
+    margin-left: 229px;
+    padding: 0px;
   }
+}
+
+.save-recipe {
+  margin-left: 229px;
+}
+
 
 .caution-data {
   border-right: 1px solid lightgray;
