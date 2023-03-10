@@ -45,13 +45,16 @@ const SearchPage = ({ setLoggedIn }) => {
 
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+    const decode = jwtDecode(token);
     axios.get('http://localhost:3000/searchrecipes', {
       headers: {
         authorization: localStorage.getItem('token')
       },
       params: {
         excluded: filters,
-        q: [randomSearchTerm()]
+        q: [randomSearchTerm()],
+        user_id: decode.id
       }
     })
     .then(results => {
