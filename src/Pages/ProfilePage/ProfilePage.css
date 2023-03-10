@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border-radius: 10px;
-  box-shadow: 0 27px 55px 0 rgba(173, 212, 244, 0.3),
-    0 17px 17px 0 rgba(73, 65, 65, 0.15);
+  border-top: 2px solid black;
+  padding: 10px
 }
 
 .profile-container {
@@ -13,6 +12,18 @@
   justify-content: center;
   align-items: center;
   margin: 20px;
+}
+
+.profile-container h3 {
+  box-shadow: 0 27px 55px 0 rgb(166 205 238 / 30%), 0 17px 17px 0 rgb(199 220 229 / 15%);
+  font-family: "Caveat";
+  src: local("Caveat"), url(/src/assets/Caveat-Regular.ttf) format("truetype");
+  margin: 0;
+  text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  color: #f2c57c !important;
+  background-image: linear-gradient(to left, #9a3c65, #f10410);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .name {
