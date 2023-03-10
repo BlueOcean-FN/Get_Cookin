@@ -10,7 +10,7 @@ const ItemList = ({title, data}) => {
   const renderItemList = data.map((entry, index) => {
     return (
       <li key={entry.name + `${index}`} className="listItem">
-      <a  target="_blank">{entry.name}</a><br/>
+      <a href={entry.url} target="_blank">{entry.name}</a><br/>
     </li>
     )
   })
