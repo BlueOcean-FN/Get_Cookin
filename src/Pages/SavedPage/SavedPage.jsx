@@ -69,7 +69,6 @@ const SavedPage = ({ email, setLoggedIn }) => {
       <div className="saveListSearchBarContainer">
             <div className="saveListSearchBar">
               <form onSubmit={handleSearch} className="saveListForm">
-
                 <input placeholder="Search your saved recipes!"
                       value={searchValue}
                       onChange={handleChange}
