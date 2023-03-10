@@ -10,7 +10,7 @@
 --
 -- ---
 
---DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS "users" CASCADE;
 
 CREATE TABLE IF NOT EXISTS users (
   "id" SERIAL NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS users (
 --
 -- ---
 
---DROP TABLE IF EXISTS "users_recipes";
+DROP TABLE IF EXISTS "users_recipes";
 
 CREATE TABLE IF NOT EXISTS users_recipes (
   "id" SERIAL NOT NULL,
@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS users_recipes (
   "recipe_id" INTEGER NULL DEFAULT NULL,
   "type" VARCHAR NULL DEFAULT NULL,
   "date" TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY ("id")
+  PRIMARY KEY ("id"),
+  UNIQUE ("user_id","recipe_id","type")
 );
 
 -- ---
@@ -44,14 +45,15 @@ CREATE TABLE IF NOT EXISTS users_recipes (
 --
 -- ---
 
---DROP TABLE IF EXISTS "recipes";
+DROP TABLE IF EXISTS "recipes";
 
 CREATE TABLE IF NOT EXISTS recipes (
   "id" SERIAL NOT NULL,
   "name" VARCHAR NULL DEFAULT NULL,
   "url" VARCHAR NULL DEFAULT NULL,
   "image_url" VARCHAR NULL DEFAULT NULL,
-  PRIMARY KEY ("id")
+  PRIMARY KEY ("id"),
+  UNIQUE ("name")
 );
 
 -- ---

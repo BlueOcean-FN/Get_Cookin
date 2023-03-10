@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
+  padding: 10px;
 }
 
 .recentlyViewed h3 {
