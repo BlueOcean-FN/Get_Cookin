@@ -54,6 +54,7 @@ const DietaryRestrictions = ({loaded}) => {
   };
 
   const addRestriction = (e) => {
+    e.preventDefault();
     setIsChecked({...isChecked, exclusions: [...isChecked.exclusions, e.target[0].value]})
   }
 

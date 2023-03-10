@@ -14,8 +14,8 @@ const addUser = (req, res, next) => {
     req.body.email,
     req.body.first,
     req.body.last,
-    req.body.exclusions,
-    req.body.lifestyle
+    '[]',
+    '{}'
   ];
   db.query(text, values, (err, result) => {
     if (err) return res.sendStatus(500);
