@@ -1,8 +1,3 @@
-
-
-
-
-
 .CardList {
   display: flex;
   width: 80%;
@@ -10,10 +5,13 @@
   min-height: 60vh;
   justify-content: center;
   text-align: center;
+  top: 20px;
+  position: relative;
 }
+
 @media (max-width: 800px) {
   .CardList {
     flex-direction: column;
-    
+
   }
 }

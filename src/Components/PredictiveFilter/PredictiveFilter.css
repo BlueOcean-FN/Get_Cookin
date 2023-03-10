@@ -1,11 +1,21 @@
 .predictive-filter {
-  margin: 0.1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px 5px;
   border: 1px solid black;
-  border-radius: 15%;
+  border-radius: 25px;
+  padding: 1px 10px;
   height: 1.5rem;
-  padding: 0.15rem;
+  position: relative;
+  background-color: #82a6a6;
 }
 
-.filter-form input {
-  margin-bottom: 0.25rem;
+.filter-form {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 }
