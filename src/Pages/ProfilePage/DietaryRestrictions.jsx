@@ -16,30 +16,30 @@ const DietaryRestrictions = ({loaded}) => {
     vegan: false,
     vegetarian: false,
     lowCarb: false,
-    glutenFree: false,
-    fishFree: false,
+    'gluten-free': false,
+    'fish-free': false,
     lowSodium: false,
-    eggFree: false,
-    alcoholFree: false,
-    celeryFree: false,
+    'egg-free': false,
+    'alcohol-free': false,
+    'celery-free': false,
     kosher: false,
-    dash: false,
-    immunoSupportive: false,
-    ketoFriendly: false,
-    kidneyFriendly: false,
-    lowPotassium: false,
-    mediterranean: false,
-    mustardFree: false,
+    'DASH': false,
+    'immuno-supportive': false,
+    'keto-friendly': false,
+    'kidney-friendly': false,
+    'low-potassium': false,
+    'Mediterranean': false,
+    'mustard-free': false,
     paleo: false,
     pescatarian: false,
-    redMeatFree: false,
-    peanutFree: false,
-    sesameFree: false,
-    shellfishFree: false,
-    sugarConscious: false,
-    sulfiteFree: false,
-    treeNutFree: false,
-    wheatFree: false,
+    'red-meat-free': false,
+    'peanut-free': false,
+    'sesame-free': false,
+    'shellfish-free': false,
+    'sugar-conscious': false,
+    'sulfite-free': false,
+    'tree-nut-free': false,
+    'wheat-free': false,
     exclusions: []
   });
 
@@ -132,27 +132,27 @@ const DietaryRestrictions = ({loaded}) => {
   Low Carb&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="Glutten-free" id="glutenFree" type="checkbox" checked={isChecked.glutenFree} onChange={handleCheckbox}/>
+  <input value="Glutten-free" id="gluten-free" type="checkbox" checked={isChecked['gluten-free']} onChange={handleCheckbox}/>
   Glutten-free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="Fish-Free" id="fishFree" type="checkbox" checked={isChecked.fishFree} onChange={handleCheckbox} />
+  <input value="Fish-Free" id="fish-free'" type="checkbox" checked={isChecked['fish-free']} onChange={handleCheckbox} />
   Fish-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value=" Low Sodium" id="lowSodium" type="checkbox" checked={isChecked.lowSodium} onChange={handleCheckbox} />
+  <input value=" Low Sodium" id="lowSodium" type="checkbox" checked={isChecked['low-sodium']} onChange={handleCheckbox} />
   Low Sodium&nbsp;&nbsp;
   </label>
   <label>
-  <input value="Egg-Free" id="eggFree" type="checkbox" checked={isChecked.eggFree} onChange={handleCheckbox} />
+  <input value="Egg-Free" id="egg-free" type="checkbox" checked={isChecked['egg-free']} onChange={handleCheckbox} />
   Egg_Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="Alcohol-Free" id="alcoholFree" type="checkbox" checked={isChecked.alcoholFree} onChange={handleCheckbox} />
+  <input value="Alcohol-Free" id="alcohol-free" type="checkbox" checked={isChecked['alcohol-free']} onChange={handleCheckbox} />
   Alcohol-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="celery-free" id="celeryFree" type="checkbox" checked={isChecked.celeryFree} onChange={handleCheckbox}/>
+  <input value="celery-free" id="celery-free" type="checkbox" checked={isChecked['celery-free']} onChange={handleCheckbox}/>
   Celery-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
@@ -160,19 +160,19 @@ const DietaryRestrictions = ({loaded}) => {
   Kosher&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="DASH" id="dash" type="checkbox" checked={isChecked.dash} onChange={handleCheckbox}/>
+  <input value="DASH" id="DASH" type="checkbox" checked={isChecked['DASH']} onChange={handleCheckbox}/>
   DASH&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="immuno-supportive" id="immunoSupportive" type="checkbox" checked={isChecked.immunoSupportive} onChange={handleCheckbox} />
+  <input value="immuno-supportive" id="immuno-supportive" type="checkbox" checked={isChecked['immuno-supportive']} onChange={handleCheckbox} />
   Immuno- Supportive&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="keto-friendly" id="ketoFriendly" type="checkbox" checked={isChecked.ketoFriendly} onChange={handleCheckbox} />
+  <input value="keto-friendly" id="keto-friendly" type="checkbox" checked={isChecked['keto-friendly']} onChange={handleCheckbox} />
   Keto-Friendly&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="low-potassium" id="lowPotassium" type="checkbox" checked={isChecked.lowPotassium} onChange={handleCheckbox} />
+  <input value="low-potassium" id="low-potassium" type="checkbox" checked={isChecked['low-potassium']} onChange={handleCheckbox} />
   Low Potassium&nbsp;&nbsp;&nbsp;
   </label>
   <label>
@@ -180,7 +180,7 @@ const DietaryRestrictions = ({loaded}) => {
   Mediterranean&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="Mustard-free" id="mustardFree" type="checkbox" checked={isChecked.mustardFree} onChange={handleCheckbox} />
+  <input value="Mustard-free" id="mustard-free" type="checkbox" checked={isChecked['mustard-free']} onChange={handleCheckbox} />
   Mustard-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
@@ -192,35 +192,35 @@ const DietaryRestrictions = ({loaded}) => {
   Pescatarian&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="red-meat-free" id="redMeatFree" type="checkbox" checked={isChecked.redMeatFree} onChange={handleCheckbox} />
+  <input value="red-meat-free" id="red-meat-free" type="checkbox" checked={isChecked['red-meat-free']} onChange={handleCheckbox} />
   Red-Meat-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="penut-free" id="peanutFree" type="checkbox" checked={isChecked.peanutFree} onChange={handleCheckbox}  />
+  <input value="penut-free" id="peanut-free" type="checkbox" checked={isChecked['peanut-free']} onChange={handleCheckbox}  />
   Peanut-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="sesame-free" id="sesameFree" type="checkbox" checked={isChecked.sesameFree} onChange={handleCheckbox}  />
+  <input value="sesame-free" id="sesame-free" type="checkbox" checked={isChecked['sesame-free']} onChange={handleCheckbox}  />
   Sesame-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="shellfish-free" type="checkbox"  id='shellFishFree' checked={isChecked.shellfishFree} onChange={handleCheckbox}  />
+  <input value="shellfish-free" type="checkbox"  id='shellfish-free' checked={isChecked['shellfish-free']} onChange={handleCheckbox}  />
   Shellfish-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="sugar-conscious" id='sugarConscious'  type="checkbox" checked={isChecked.sugarConscious} onChange={handleCheckbox}  />
+  <input value="sugar-conscious" id='sugar-conscious'  type="checkbox" checked={isChecked['sugar-conscious']} onChange={handleCheckbox}  />
   Sugar-Conscious&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="sulfite-free" type="checkbox" id='sulphiteFree'  checked={isChecked.sulfiteFree} onChange={handleCheckbox} />
+  <input value="sulfite-free" type="checkbox" id='sulphite-free'  checked={isChecked['sulfite-free']} onChange={handleCheckbox} />
   Sulphite-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="tree-nut-free" id='treeNutFree' type="checkbox" checked={isChecked.treeNutFree} onChange={handleCheckbox}  />
+  <input value="tree-nut-free" id='tree-nut-free' type="checkbox" checked={isChecked['tree-nut-free']} onChange={handleCheckbox}  />
   Tree-Nut-Free&nbsp;&nbsp;&nbsp;
   </label>
   <label>
-  <input value="wheat-free" id='wheatFree' type="checkbox" checked={isChecked.wheatFree} onChange={handleCheckbox} />
+  <input value="wheat-free" id='wheat-free' type="checkbox" checked={isChecked['wheat-free']} onChange={handleCheckbox} />
   Wheat-Free&nbsp;&nbsp;&nbsp;
   </label>
     </div>
