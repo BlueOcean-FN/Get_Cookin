@@ -3,7 +3,7 @@ import './AccountInfo.css';
 
 const AccountInfo  = ({first, last, email}) => {
 return (
-<div>
+<div className="accountInfo-container">
 <div className="accountInfo">
         <h3>Account Info</h3>
         <div className="UserName">Name: {first } {last}</div>
