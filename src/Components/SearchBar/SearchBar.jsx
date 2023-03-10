@@ -35,7 +35,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
       setAutocomplete([]);
     }
     useEffect(() => {
-      if (searchValue) {
+      if (searchValue !== "") {
         clearTimeout(timer);
         setTimer(setTimeout( async () => {
           const words = await axios.get('http://localhost:3000/ingredientdata', {
@@ -59,7 +59,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
             <div className="search-bar">
                 <HiOutlineSearch />
                 <form onSubmit={searchRecipes}>
-                  <button>Search!</button>
+                  <button>Search</button>
                 </form>
                 {ingredients.map((ingredient, index) => (
                     <Ingredient key={index}
@@ -76,7 +76,7 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
                            autoComplete="off"></input>
                 </form>
             </div>
-            {autocomplete.length > 0 && <div className="predictive-text"><div className="suggestions">Suggestions</div>
+            {autocomplete.length > 0 && searchValue !== "" && <div className="predictive-text"><div className="suggestions">Suggestions</div>
                 {autocomplete.map((item, index) => (
                   <PredictiveIngredient ingredient={item}
                                         handleClick={predictiveClick}

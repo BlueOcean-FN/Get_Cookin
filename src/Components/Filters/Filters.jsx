@@ -22,7 +22,7 @@ const Filters = ({filters, setFilters}) => {
 
   const removeFilter = (e) => {
     setFilters(filters.filter(filter => {
-      return filter !== e.target.textContent;
+      return `${filter} \u2716` !== e.target.textContent;
     }))
   }
 
@@ -33,7 +33,7 @@ const Filters = ({filters, setFilters}) => {
   }
 
   useEffect(() => {
-    if (newFilter) {
+    if (newFilter !== "") {
       clearTimeout(timer);
       setTimer(setTimeout( async () => {
         const words = await axios.get('http://localhost:3000/ingredientdata', {
@@ -51,10 +51,11 @@ const Filters = ({filters, setFilters}) => {
 
   return (
     <div className="filters-container">
+      <div className="filter-bar">
       <ImCross />
       {filters.map((filter, index) => (
         <Filter key={index}
-                filter={filter}
+                filter={`${filter} \u2716`}
                 removeFilter={removeFilter} />
       ))}
       <form onSubmit={addFilter} className="filter-form">
@@ -62,7 +63,8 @@ const Filters = ({filters, setFilters}) => {
                onChange={handleTyping}
                placeholder="Add a filter..." />
       </form>
-      {filterAuto.length > 0 && <div className="filters-predictive-container">
+      </div>
+      {filterAuto.length > 0 && newFilter !== "" && <div className="filters-predictive-container">
         {filterAuto.map((item, index) => (
           <PredictiveFilter handleClick={handlePredictive}
                             filter={item}
