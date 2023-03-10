@@ -46,16 +46,9 @@ app.post('/signup-user', addUser, (req, res) => {
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
   res.send({ token: signed });
 })
-
-app.get('/testroute', (req, res) => {
-  // console.log(req.user_id && req.user_id);
-  res.send('yo');
-})
 // /AUTHENTICATION ^^^
 
-
 app.get('/autoComplete', (req, res) => {
-  // console.log('Inside get of autoComplete');
   let userInput = req.query.q;
   axios.get(`${autoComplete_URL}&q=${userInput}&limit=6`)
   .then(({data}) => {
@@ -65,17 +58,10 @@ app.get('/autoComplete', (req, res) => {
   .catch((err) => console.log(err));
 })
 
-// app.get('/&q=*', (req, res) => {
-//   console.log(process.env.API_URL, process.env)
-//   // axios.get(process.env.API_URL + req.url.slice(1))
-//   // .then(res => console.log(res));
-// })
-
 //recipe search
 app.get('/searchrecipes', recipeSearch);
 
 //recipe saving
-
 app.post('/savedPage', postSaved);
 app.get('/savedPage', getSaved);
 
@@ -87,7 +73,6 @@ app.post('/savetoprofile', saveToProfile);
 app.get('/getprofile', getProfile);
 
 //autocomplete actually needs this to work :)
-
 app.get('/ingredientdata', getAutocomplete);
 
 // catch-all route handler for other routes

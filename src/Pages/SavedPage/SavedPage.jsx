@@ -60,18 +60,25 @@ const SavedPage = ({ email, setLoggedIn }) => {
       }
     }
 
+
   return (
 
     <div className="saveListContainer">
-      <div className="saveListSearchBar">
-        <form onSubmit={handleSearch}>
-          <HiOutlineSearch />
-          <input placeholder="Search your saved recipes!"
-                 value={searchValue}
-                 onChange={handleChange}/>
-        </form>
+      <div className="saveTitle">Saved Recipes!</div>
+      <br/>
+      <div className="saveListSearchBarContainer">
+            <div className="saveListSearchBar">
+              <form onSubmit={handleSearch} className="saveListForm">
+
+                <input placeholder="Search your saved recipes!"
+                      value={searchValue}
+                      onChange={handleChange}
+                      className="saveListInput"/>
+              </form>
+            </div>
       </div>
       <div className="renderSaveList">
+        <br/>
         {renderSaveList()}
       </div>
     </div>

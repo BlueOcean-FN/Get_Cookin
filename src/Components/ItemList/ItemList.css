@@ -1,0 +1,29 @@
+.listItem {
+  margin-top: 12.5px;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px 30px 10px 30px;
+  min-height: 20px;
+  min-width: 20px;
+  background: #82a6a6;
+  border-radius: 20px;
+}
+
+.listItem:hover {
+  scale: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  padding: 10px 10px 10px 10px;
+}
+
+@media (max-width: 800px) {
+  a {
+    font-size: 13.33px !important;
+  }
+}
