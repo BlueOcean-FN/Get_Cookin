@@ -38,9 +38,7 @@ const Login = ({ setLoggedIn }) => {
     e.preventDefault();
     axios.post('http://localhost:3000/login-user', loginCredentials)
     .then(res => {
-
       localStorage.setItem('email', loginCredentials.email);
-
       localStorage.setItem('token', `Bearer ${res.data.token}`);
       navigate(`/search`);
     })
