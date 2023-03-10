@@ -5,6 +5,7 @@ const findUser = (req, res, next) => {
   const text = `SELECT * FROM users WHERE hash = $$${req.body.password}$$ AND email = $$${req.body.email}$$;`;
 
   db.query(text, (err, result) => {
+    if (err) console.log(err);
     console.log(result.rows[0]);
     req.database = result.rows[0];
     next()
