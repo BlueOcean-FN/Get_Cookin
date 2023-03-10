@@ -46,6 +46,27 @@ input[type="password"] {
   margin: 0 auto;
 }
 
+.error-div {
+  /* margin: 5px 0; */
+  display: flex;
+  flex-direction: column;
+}
+
+.error-div-2 {
+  align-items: center;
+  background-color: rgb(235, 106, 106);
+  border: 2px solid rgb(164, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  font-family: Arial !important;
+  font-size: 12px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  width: 50%;
+}
+
+
 .submit {
   display: flex;
   justify-content: center;

@@ -18,7 +18,13 @@ const addUser = (req, res, next) => {
     req.body.lifestyle
   ];
   db.query(text, values, (err, result) => {
-    if (err) return res.sendStatus(500);
+    if (err && err.code === '23502') {
+      return res.sendStatus(500);
+    } else if (err && err.code === '23505') {
+      return res.sendStatus(400);
+    } else if (err) {
+      return res.sendStatus(501)
+    }
     req.database = result.rows[0];
     next()
   })

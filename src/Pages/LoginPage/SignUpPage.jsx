@@ -11,6 +11,7 @@ const SignUp = ({ setLoggedIn }) => {
 
   const navigate = useNavigate()
 
+  const [error, setError] = useState(null);
   const [signUpCredentials, setSignUpCredentials] = useState(
     {
       email: '',
@@ -40,9 +41,14 @@ const SignUp = ({ setLoggedIn }) => {
       navigate('/search')
     })
     .catch(error => {
-      console.log(error);
-       //receives 500 if not all credentials are made
-       //receives 400 if user already exists in db
+      console.log(error.response.status);
+      if (error.response.status === 500) {
+        setError('Fill out all fields!');
+      } else if (error.response.status === 400) {
+        setError('Email is already taken!');
+      } else if (error.response.status) {
+        setError('Unknown error');
+      }
     });
   }
 
@@ -105,6 +111,13 @@ const SignUp = ({ setLoggedIn }) => {
         <button className="submit" type="submit" onClick={handleSignUp}>Sign Up</button>
       </form>
       <button className="submit" onClick={sendToLogIn}>Log In</button>
+      {error &&
+      <div className='error-div'>
+        <div className='error-div-2'>
+          {error}
+        </div>
+      </div>
+      }
     </div>
   );
 };
