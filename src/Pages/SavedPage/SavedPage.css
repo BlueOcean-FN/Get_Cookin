@@ -72,6 +72,7 @@
     width: 400px;
     display: flex;
     justify-content: center;
+    border-radius: 20px;
 }
 
 .saveListInput {
@@ -79,4 +80,5 @@
     height: 50px;
     text-align: center;
     font-size: 20px;
+    border-radius: 20px;
 }
