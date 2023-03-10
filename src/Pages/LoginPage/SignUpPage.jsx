@@ -54,6 +54,7 @@ const SignUp = ({ setLoggedIn }) => {
 
   return (
     <div className="layout-form">
+      <div className="signupBox">
       <h1 className="login-title">Sign up</h1>
       <form>
       <section>
@@ -118,6 +119,7 @@ const SignUp = ({ setLoggedIn }) => {
         </div>
       </div>
       }
+      </div>
     </div>
   );
 };
