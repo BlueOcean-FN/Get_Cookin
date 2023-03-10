@@ -7,7 +7,7 @@ import './Card.css';
 const Card = ({ data }) => {
 
 
-  const [cardImage, setCardImage] = useState(null);
+  const [saved, setSaved] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
   const displayItem = (prop) => {
@@ -20,6 +20,8 @@ const Card = ({ data }) => {
 
 
   const handleSave = function() {
+    if (!saved) {
+      setSaved(true) 
     axios.post('http://localhost:3000/savedPage',
     {
       email: localStorage.getItem('email'),
@@ -36,6 +38,9 @@ const Card = ({ data }) => {
     .catch(function (error) {
       console.log('Axios error in Card handleSave function', error);
     })
+  } else {
+    console.log('Recipe Already Saved')
+  }
   }
 
 
@@ -52,7 +57,7 @@ const Card = ({ data }) => {
         </ul>
         </div>
         <div className='image-container compressed'>
-          <img src={data.image} onerror={"https://gfi.org/wp-content/uploads/2023/01/COR22054_webinar-graphics-business-of-alt-protein-January_header-feature.png"}alt={'null'} />
+          <img src={data.image} alt={'null'} />
         </div>
       </div>
       <div className="ExpansionBlock">
@@ -94,8 +99,10 @@ const Card = ({ data }) => {
       
       <button className="show-recipe"onClick={() => window.open(data.url, '_blank', 'noopener,noreferrer')} >Show Recipe</button>
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
-      <button className="save-recipe" onClick={handleSave} >Save Recipe</button>
-
+      {saved
+      ?<button className="save-recipe" onClick={handleSave} >Recipe Saved</button>
+      :<button className="save-recipe" onClick={handleSave} >Save Recipe</button>
+      }
 
       </div>
     </div>

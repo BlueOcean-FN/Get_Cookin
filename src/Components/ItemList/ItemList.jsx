@@ -9,9 +9,8 @@ const ItemList = ({title, data}) => {
 
   const renderItemList = data.map((entry, index) => {
     return (
-      <li key={entry.name + `${index}`}>
+      <li key={entry.name + `${index}`} className="listItem">
       <a href={entry.url} target="_blank">{entry.name}</a><br/>
-      <hr/>
     </li>
     )
   })
@@ -19,7 +18,6 @@ const ItemList = ({title, data}) => {
   return (
     <div className="itemListContainer">
       <div className="itemListTitle">
-        {title} <br/>
         <hr/>
       </div>
       <div className="itemList">

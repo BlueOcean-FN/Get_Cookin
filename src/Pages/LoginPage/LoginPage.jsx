@@ -15,6 +15,7 @@ const Login = ({ setLoggedIn }) => {
 
   const navigate = useNavigate()
 
+  const [error, setError] = useState(null);
   const [loginCredentials, setLoginCredentials] = useState(
     {
       email: '',
@@ -37,17 +38,13 @@ const Login = ({ setLoggedIn }) => {
     e.preventDefault();
     axios.post('http://localhost:3000/login-user', loginCredentials)
     .then(res => {
-
       localStorage.setItem('email', loginCredentials.email);
-
       localStorage.setItem('token', `Bearer ${res.data.token}`);
       navigate(`/search`);
     })
     .catch(err => {
       console.log(err);
-      //receives 500 if user does't exist
-        // display err code (console.log for now)
-        // or maybe redirect to signup page??
+      setError('Wrong email or password!')
     })
   }
 
@@ -83,6 +80,13 @@ const Login = ({ setLoggedIn }) => {
         <button type="submit" onClick={handleLogin} className="submit">Login</button>
       </form>
       <button className="submit" onClick={sendToSignUp}>Sign Up</button>
+      {error &&
+      <div className='error-div'>
+        <div className='error-div-2'>
+          {error}
+        </div>
+      </div>
+      }
     </div>
   );
 
