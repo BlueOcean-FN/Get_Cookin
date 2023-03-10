@@ -4,6 +4,7 @@ import SearchBar from '../../Components/SearchBar/SearchBar.jsx';
 import Filters from '../../Components/Filters/Filters.jsx';
 import CardList from '../../Components/CardList/CardList.jsx';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 const SearchPage = ({ setLoggedIn }) => {
 
@@ -16,6 +17,8 @@ const SearchPage = ({ setLoggedIn }) => {
   const [cards, setCards] = useState([]);
 
   const searchRecipes = (e) => {
+    const token = localStorage.getItem('token');
+    const decode = jwtDecode(token);
     e.preventDefault();
     axios.get('http://localhost:3000/searchrecipes', {
       headers: {
@@ -23,7 +26,8 @@ const SearchPage = ({ setLoggedIn }) => {
       },
       params: {
         excluded: filters,
-        q: ingredients
+        q: ingredients,
+        user_id: decode.id
       }
     })
     .then(results => {
