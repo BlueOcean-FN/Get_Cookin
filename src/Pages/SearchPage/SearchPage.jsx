@@ -32,6 +32,31 @@ const SearchPage = ({ setLoggedIn }) => {
     })
   }
 
+
+  const randomSearchTerm = () => {
+    const searchTerms = ['chicken', 'beef', 'vodka', 'pickle', 'shark', 'cous cous', 'sandwich roll', 'salad mix', 'pork'];
+    const randomIndex = Math.floor(Math.random() * searchTerms.length);
+    return searchTerms[randomIndex];
+  }
+
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/searchrecipes', {
+      headers: {
+        authorization: localStorage.getItem('token')
+      },
+      params: {
+        excluded: filters,
+        q: [randomSearchTerm()]
+      }
+    })
+    .then(results => {
+      console.log(results);
+      setCards(results.data);
+    })
+  }, [])
+
+
   return (
     <div className='SearchPage'>
       <SearchBar setIngredients={setIngredients}
