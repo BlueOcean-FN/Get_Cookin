@@ -5,20 +5,18 @@ import './ProfilePage.css';
 
 const ProfilePage = ({ setLoggedIn }) => {
 
+  const [loaded, setLoaded] = useState('cheese');
+
   useEffect(() => {
     setLoggedIn(true);
+    setLoaded('potato');
   }, [])
 
   return (
     <div className="profile-container">
-      <div className="accountInfo">
-        <div className="UserName">Name</div>
-        <div className="UserEmail">Email</div>
-        <div className="password">Password</div>
-        <div className="ssn">SSN</div>
-      </div>
+
       <div>
-        <DietaryRestrictions/>
+        <DietaryRestrictions loaded={loaded}/>
       </div>
       <div>
         <RecentlyViewed/>

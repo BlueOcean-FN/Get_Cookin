@@ -2,7 +2,7 @@ const model = require('../models/saveRecipe.js');
 
 
 exports.getSaved = (req, res) => {
-  //console.log('this is req object in controllers: ', req)
+
   const email = req.query.email;
   const type = req.query.type;
 
@@ -18,7 +18,6 @@ exports.getSaved = (req, res) => {
       res.status(200).send(resultArray);
     })
     .catch((err) => {
-      console.log(err);
       res.status(501).send(err);
     });
   };

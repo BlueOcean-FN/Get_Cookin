@@ -39,11 +39,14 @@
   flex-grow: 1;
   flex-wrap: wrap;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 35px;
+  width: 85%;
   border: 1px solid black;
   background-color: #f2f2f2;
   border-radius: 10px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-form {
@@ -75,18 +78,31 @@
   text-align: center;
   border: 1px solid black;
   padding: 3px 12px;
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 25px;
+  min-width: 100px;
   background: #82a6a6;
   border-radius: 4px;
 }
 
+.search-bar button:hover {
+  background: #6c8d8d;
+
+}
+
+.search-bar button:focus {
+  outline-color: transparent;
+  outline-style:solid;
+}
 
 
 
 @media screen and (min-width: 768px) {
   .searchinput {
     width: 400px;
+  }
+
+  .search-bar button:hover {
+    background: #6c8d8d;
   }
 }
 

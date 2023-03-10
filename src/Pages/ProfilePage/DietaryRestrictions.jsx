@@ -1,11 +1,17 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import MoreDietaryRes from './MoreDietRes.jsx';
 import './DietaryRestrictions.css';
 import Filters from '../../Components/Filters/Filters.jsx';
 import axios from 'axios';
-// import jwt from 'jsonwebtoken';
+//import { decode } from 'jsonwebtoken';
+import jwtDecode from 'jwt-decode';
+import AccountInfo from './AccountInfo.jsx';
 
-const DietaryRestrictions = () => {
+
+const DietaryRestrictions = ({loaded}) => {
+  const [ first, setFirst ] = useState('');
+  const [ last, setLast ] = useState('');
+  const [ email, setEmail ] = useState('');
   const [ isChecked, setIsChecked ] = useState({
     vegan: false,
     vegetarian: false,
@@ -66,12 +72,50 @@ const DietaryRestrictions = () => {
   const saveToProfile = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const decode = jwt.decode(token);
-    console.log(decode);
-    // axios.post('')
+
+    const decode = jwtDecode(token);
+    axios.post('http://localhost:3000/savetoprofile',{
+      headers: {
+        authorization: token
+      },
+      params: {
+        user_id: decode.id,
+        settings: isChecked
+      }
+    })
+    .then(result => {
+      console.log(result);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const decode = jwtDecode(token);
+    axios.get('http://localhost:3000/getprofile', {
+      headers: {
+        authorization: token
+      },
+      params: {
+        user_id: decode.id,
+      }
+    }).then ((response) => {
+      console.log(response);
+      const personalInfo = response.data.personalInfo;
+      const checked = response.data.isChecked;
+      setIsChecked(checked);
+      setFirst(personalInfo.first);
+      setLast(personalInfo.last);
+      setEmail(personalInfo.email);
+    })
+  }, [loaded]);
+
+
+  console.log(first, last, email)
   return (
+    <div>
   <div class="dietaryRestrictions">
   <h3>Dietary Restrictions</h3>
   <div className='dietary-selection-container'>
@@ -187,6 +231,11 @@ const DietaryRestrictions = () => {
     <form onSubmit={saveToProfile}>
         <button>Save to Profile</button>
     </form>
+
+  </div>
+  <div>
+      <AccountInfo first={first} last={last} email={email}/>
+    </div>
   </div>
 
   )
