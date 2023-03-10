@@ -1,7 +1,10 @@
 .indivRes {
+  display: inline-flex;
+  flex-wrap: wrap;
   margin: 0px 5px;
   border: 1px solid black;
   border-radius: 12%;
   padding: 0px 2px;
-  height: 2rem;
+  height: 1.5rem;
+  margin-top: 10px;
 }

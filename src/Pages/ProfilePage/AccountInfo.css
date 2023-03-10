@@ -1,12 +1,10 @@
-
 .accountInfo {
-  height: 260px;
-  width: 100%;
-  flex-wrap: wrap;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow:0 27px 55px 0  rgba(173, 212, 244, 0.3),
-    0 17px 17px 0 rgba(73, 65, 65, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 27px 55px 0  rgba(166, 205, 238, 0.3),
+    0 17px 17px 0 rgba(199, 220, 229, 0.15);
 }
 
 .accountInfo h3 {

@@ -1,9 +1,31 @@
 .dietaryRestrictions {
-  height: 260px;
-  width: 100%;
-  flex-wrap: wrap;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 20px;
-  box-shadow: 0 27px 55px 0  rgba(173, 212, 244, 0.3),
-    0 17px 17px 0 rgba(73, 65, 65, 0.15);
+  box-shadow: 0 27px 55px 0  rgba(166, 205, 238, 0.3),
+    0 17px 17px 0 rgba(199, 220, 229, 0.15);
+}
+
+.dietary-selection-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dietaryRestrictions h3 {
+  margin-top: 1em;
+}
+
+.dietaryRestrictions button {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid black;
+  padding: 3px 12px;
+  min-height: 25px;
+  min-width: 100px;
+  background: #82a6a6;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }

@@ -41,10 +41,11 @@ const MoreDietaryRes = ({ingredients, addRestriction, removeRestriction, addAuto
     <div className='moreDietRes'>
       <ImCross/>
       {ingredients.map((ingredient, index) => (
-        <IndivDietRes key={index} ingredient={ingredient} removeRestriction={removeRestriction}/>
+        <IndivDietRes key={index} ingredient={`${ingredient} \u2716`} removeRestriction={removeRestriction}/>
       ))}
+      <div className='form-container'>
       <form onSubmit={addRestriction}>
-        <input className='inputContainer' id='auto' autoComplete="off"  placeholder='add more restrictions'  value={moreRestriction} onChange={(e) => {
+        <input className='input-container' id='auto' autoComplete="off"  placeholder='add more restrictions'  value={moreRestriction} onChange={(e) => {
           setMoreRestriction(e.target.value)
           edamamApi(e.target.value)
         }}/>
@@ -52,6 +53,7 @@ const MoreDietaryRes = ({ingredients, addRestriction, removeRestriction, addAuto
       <div onClick={() => suggestHandler(suggestion)}className='suggestion'> {suggestion}</div>
       )}
       </form>
+      </div>
     </div>
   );
 }

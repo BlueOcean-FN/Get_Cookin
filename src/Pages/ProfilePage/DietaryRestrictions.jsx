@@ -64,7 +64,7 @@ const DietaryRestrictions = ({loaded}) => {
   const removeRestriction = (e) => {
     console.log(e.target.textContent);
     const newExclusions = isChecked.exclusions.filter(exclusion => {
-      return exclusion !== e.target.textContent;
+      return `${exclusion} \u2716` !== e.target.textContent;
     })
     setIsChecked({...isChecked, exclusions: newExclusions})
   }
