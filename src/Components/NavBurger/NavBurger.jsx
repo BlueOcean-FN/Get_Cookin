@@ -15,12 +15,8 @@ const NavBurger = () => {
   const handleSignout = (e) => {
     document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     axios.post('http://localhost:3000/logout-user')
-      .then(() => {
-        console.log('logged out')
-      })
-      .catch((err) => {
-        console.log('error with sign out', err)
-      })
+      .then(() => { })
+      .catch((err) => { })
     localStorage.removeItem('token');
   }
 

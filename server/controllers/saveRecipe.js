@@ -45,22 +45,3 @@ exports.postSaved = (req, res) => {
       res.status(501).send(err);
     });
   };
-
-
-  //Below are functions/queries used for testing.
-
-  // INSERT INTO users (hash, email, first, last, exclusions, lifestyle) VALUES('andhisson', 'bryce', 'hey', 'yo', 'none', 'none');
-
-  // exports.postSaved({params: {
-  //   email: 'bryce',
-  //   type: 'saved',
-  //   name: 'unethical chicken',
-  //   url: 'http://www.zaxbys.com',
-  //   image_url: 'http://www.churchs.com'
-  // }});
-
-    // exports.getSaved({params: {
-  //   email: 'bryce',
-  //   type: 'saved'
-  // }});
-

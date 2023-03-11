@@ -50,7 +50,6 @@ const SearchBar = ({ingredients, setIngredients, searchRecipes}) => {
           })
           setAutocomplete(words.data);
         }, 300))
-        console.log(autocomplete)
       }
     }, [searchValue])
 
