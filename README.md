@@ -26,6 +26,19 @@
 
 ### Built With
 
+- Front End:
+
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
+
+- Back End:
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" width=30px height=30px> **NodeJs**
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png" width=30px height=30px> **Express**
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" width=30px height=30px> **PostgreSQL**
+
+
 ## Features
 
 Here are some of the features of Get Cookin:
@@ -71,10 +84,8 @@ Please visit our contributors pages on GitHub:
   - `FOOD_KEY=yourFoodKey`
   - `RECIPE_ID=yourRecipeID`
   - `RECIPE_KEY=yourRecipeKey`
-  - `API_URL="https://api.edamam.com/search?app_id=RECIPE_ID&app_key=
-RECIPE_KEY"`
-  - `AUTOCOMPLETE_API_URL='https://api.edamam.com/auto-complete?app_id=FOOD_ID&app_key=
-FOOD_KEY'`
+  - `API_URL="https://api.edamam.com/search?app_id=RECIPE_ID&app_key=RECIPE_KEY"`
+  - `AUTOCOMPLETE_API_URL='https://api.edamam.com/auto-complete?app_id=FOOD_ID&app_key=FOOD_KEY'`
 - `npm install` to install dependencies
 - `npm run build` to build the front end
 - `npm run serve` to start the server and connect to the database
