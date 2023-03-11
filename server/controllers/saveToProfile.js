@@ -13,11 +13,10 @@ const saveToProfile = (req, res) => {
   const values = [exclusions, lifestyle]
   db.query(query, values)
   .then(result => {
-    console.log('results:', result);
     res.sendStatus(201);
   })
   .catch(err => {
-    console.log('error:', err);
+    console.log(err);
     res.sendStatus(500);
   })
 }

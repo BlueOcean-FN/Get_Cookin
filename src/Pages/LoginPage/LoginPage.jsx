@@ -43,7 +43,6 @@ const Login = ({ setLoggedIn }) => {
       navigate(`/search`);
     })
     .catch(err => {
-      console.log(err);
       setError('Wrong email or password!')
     })
   }

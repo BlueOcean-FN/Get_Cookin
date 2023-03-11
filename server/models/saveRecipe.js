@@ -11,7 +11,6 @@ exports.getSaved = async (query) => {
     )
     return savedObject;
   } catch (err) {
-    console.log('This error is in saveRecipe models getSaved: ', err);
     return err;
   }
 }
@@ -27,7 +26,6 @@ exports.postSaved = async (usersQueryObject, recipesQueryObject, users_recipesQu
 
     return 'Insert OK';
   } catch (err) {
-    console.log('This error is in saveRecipe models postSaved: ', err);
     return err;
   }
 }

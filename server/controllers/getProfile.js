@@ -1,7 +1,6 @@
 const db = require('../database/index.js');
 
 const getProfile = (req, res) => {
-  console.log('user_id:', req.query.user_id);
   const query = `SELECT lifestyle, exclusions, first, last, email FROM users WHERE id=${req.query.user_id}`
   db.query(query)
   .then(results => {

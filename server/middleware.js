@@ -6,7 +6,6 @@ module.exports.authenticateUser = (req, res, next) => {
     return next();
   }
   if (!req.path) {
-    console.log('req.path is null, !req.path is the culprit')
     return res.redirect('/')
   }
 
@@ -14,7 +13,6 @@ module.exports.authenticateUser = (req, res, next) => {
   if (!token) token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
   if (!token) {
-    console.log('token is null, !token is the culprit')
     return res.redirect('/');
   }
 
@@ -23,7 +21,6 @@ module.exports.authenticateUser = (req, res, next) => {
     req.user_id = decodedToken.id;
     next();
   } catch (error) {
-    console.log('there was an error after decoding, so go to login')
     return res.redirect('/');
   }
 };

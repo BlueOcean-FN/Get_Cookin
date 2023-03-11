@@ -21,7 +21,6 @@ const SavedPage = ({ email, setLoggedIn }) => {
   }
 
   const handleSearch = (e) => {
-    // const regex = new RegExp(`${searchValue}`, 'g');
     e.preventDefault();
     setDisplayList(saveList.filter(item => {
       let searchName = item.name.toLowerCase();
@@ -46,9 +45,7 @@ const SavedPage = ({ email, setLoggedIn }) => {
       setSaveList(response.data);
       setDisplayList(response.data);
     })
-    .catch(function (error) {
-      console.log('Axios error in SavedPage useEffect', error);
-    })
+    .catch(function (error) { })
 
   }, []);
 

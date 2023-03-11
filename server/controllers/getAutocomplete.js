@@ -7,7 +7,7 @@ const getAutocomplete = (req, res) => {
   .then(results => {
     res.send(results.data);
   })
-  .catch(err => console.log('there was an error in getAutocomplete', err));
+  .catch(err => console.log(err));
 }
 
 module.exports = getAutocomplete;

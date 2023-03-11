@@ -44,7 +44,6 @@ const DietaryRestrictions = ({loaded}) => {
   });
 
   const handleCheckbox = (e) => {
-    // console.log(e.target.id);
     const key = e.target.id;
     if(isChecked[e.target.id]) {
       setIsChecked({...isChecked, [key]: false});
@@ -63,7 +62,6 @@ const DietaryRestrictions = ({loaded}) => {
   }
 
   const removeRestriction = (e) => {
-    console.log(e.target.textContent);
     const newExclusions = isChecked.exclusions.filter(exclusion => {
       return `${exclusion} \u2716` !== e.target.textContent;
     })
@@ -84,12 +82,8 @@ const DietaryRestrictions = ({loaded}) => {
         settings: isChecked
       }
     })
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    .then(result => { })
+    .catch(err => { })
   }
 
   useEffect(() => {
@@ -103,7 +97,6 @@ const DietaryRestrictions = ({loaded}) => {
         user_id: decode.id,
       }
     }).then ((response) => {
-      console.log(response);
       const personalInfo = response.data.personalInfo;
       const checked = response.data.isChecked;
       setIsChecked(checked);
@@ -113,8 +106,6 @@ const DietaryRestrictions = ({loaded}) => {
     })
   }, [loaded]);
 
-
-  console.log(first, last, email)
   return (
     <div>
   <div class="dietaryRestrictions">

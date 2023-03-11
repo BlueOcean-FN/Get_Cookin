@@ -31,7 +31,6 @@ const SearchPage = ({ setLoggedIn }) => {
       }
     })
     .then(results => {
-      console.log(results);
       setCards(results.data);
     })
   }
@@ -58,7 +57,6 @@ const SearchPage = ({ setLoggedIn }) => {
       }
     })
     .then(results => {
-      console.log(results);
       setCards(results.data);
     })
   }, [])

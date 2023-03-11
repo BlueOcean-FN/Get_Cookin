@@ -29,9 +29,7 @@ app.use(authenticateUser);
 // AUTHENTICATION  ===
 app.post('/login-user', findUser, (req, res) => {
   if (!req.database) return res.sendStatus(500);
-  console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
-  console.log(req.database.id, signed);
   res.cookie('token', signed, {httpOnly: true});
   res.send({ token: signed });
 })
@@ -42,7 +40,6 @@ app.post('/logout-user', (req, res) => {
 })
 
 app.post('/signup-user', addUser, (req, res) => {
-  console.log(req.database);
   const signed = jwt.sign({ id: req.database.id }, process.env.JWT_SECRET);
   res.send({ token: signed });
 })
@@ -52,7 +49,6 @@ app.get('/autoComplete', (req, res) => {
   let userInput = req.query.q;
   axios.get(`${autoComplete_URL}&q=${userInput}&limit=6`)
   .then(({data}) => {
-    console.log(data)
     res.status(200).send(data);
   })
   .catch((err) => console.log(err));

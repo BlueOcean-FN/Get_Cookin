@@ -7,7 +7,6 @@ const recipeSearch = (req, res) => {
   let userQuery = `SELECT exclusions, lifestyle FROM users WHERE id=${req.query.user_id}`
   db.query(userQuery)
   .then(userData => {
-    console.log(userData.rows[0]);
     let queryString = `https://api.edamam.com/api/recipes/v2/?app_id=${process.env.RECIPE_ID}&app_key=${process.env.RECIPE_KEY}&type=public`
     if (req.query.q) {
       queryString += '&q='
@@ -35,7 +34,6 @@ const recipeSearch = (req, res) => {
         }
       }
     }
-    console.log('HERE:', queryString);
     axios(queryString)
       .then(results => {
         let content = results.data.hits;
@@ -56,7 +54,7 @@ const recipeSearch = (req, res) => {
         }
         res.send(JSON.stringify(resultArray));
       })
-      .catch(err => console.log('err happened', err))
+      .catch(err => console.log(err))
     })
 
 }
