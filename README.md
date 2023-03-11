@@ -24,6 +24,9 @@
 
 ## Introduction
 
+The goal of Get Cookin is to make delicious recipes available for everyone!  The app allows you to find recipes using ingredients you have at home; think of it as a digital recipe book.  Get Cookin is targeted towards people learning to cook and people who want to eat healthier/eat at home.  So go take a look in your fridge and Get Cookin!
+
+
 ### Built With
 
 - Front End:
