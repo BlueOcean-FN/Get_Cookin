@@ -7,6 +7,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
+  - [Built With](#built-with)
 - [Features](#features)
   - [Recipe Search](#recipe-search)
   - [Profile Page](#profile-page)
@@ -20,15 +21,14 @@
 - [Sponsors](#sponsors-)
 - [Acknowledgments](#acknowledgments)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Introduction
 
-
+### Built With
 
 ## Features
 
-A few of the things you can do with GitPoint:
+Here are some of the features of Get Cookin:
 
 ### Recipe Search
 
@@ -40,70 +40,47 @@ A few of the things you can do with GitPoint:
 
 ### Back End
 
-
-* View user activity feed
-* Communicate on your issue and pull request conversations
-* Close or lock issues
-* Apply labels and assignees
-* Review and merge pull requests
-* Create new issues
-* Star, watch and fork repositories
-* Control your unread and participating notifications
-* Easily search for any user or repository
-
-<p align="center">
-  <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
-</p>
-
-<p align="center">
-  <img src = "http://i.imgur.com/0iorG20.png" width=700>
-</p>
-
 ## Feedback
 
-Feel free to send us feedback on [Twitter](https://twitter.com/gitpointapp) or [file an issue](https://github.com/gitpoint/git-point/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
-
-If there's anything you'd like to chat about, please feel free to join our [Gitter chat](https://gitter.im/git-point)!
+We can delete this if we don't want to use it.
 
 ## Contributors
 
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
+Please visit our contributors pages on GitHub:
+
 
 ## Build Process
 
-- Follow the [React Native Guide](https://facebook.github.io/react-native/docs/getting-started.html) for getting started building a project with native code. **A Mac is required if you wish to develop for iOS.**
 - Clone or download the repo
-- `yarn` to install dependencies
-- `yarn run link` to link react-native dependencies
-- `yarn start:ios` to start the packager and run the app in the iOS simulator (`yarn start:ios:logger` will boot the application with [redux-logger](<https://github.com/evgenyrodionov/redux-logger>))
-- `yarn start:android` to start the packager and run the app in the the Android device/emulator (`yarn start:android:logger` will boot the application with [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+- Install a PostgreSQL and create a database
+- Navigate to the database folder in the repo and run `psql -U yourUsername -d yourDatabase -f "schema.sql"`
+- Sign up for Food Database and Recipe Search APIs
+- Create a .env file in the root directory of the repo and input the following:
+  - `JWT_SECRET='use Node.js crypto function to generate a 64bit key'`
+  - `FOOD_ID=yourFoodID`
+  - `FOOD_KEY=yourFoodKey`
+  - `RECIPE_ID=yourRecipeID`
+  - `RECIPE_KEY=yourRecipeKey`
+  - `API_URL="https://api.edamam.com/search?app_id=RECIPE_ID&app_key=
+RECIPE_KEY"`
+  - `AUTOCOMPLETE_API_URL='https://api.edamam.com/auto-complete?app_id=FOOD_ID&app_key=
+FOOD_KEY'`
+- `npm install` to install dependencies
+- `npm run build` to build the front end
+- `npm run serve' to start the server
+- Navigate to `localhost:3000' to start the app!
 
-Please take a look at the [contributing guidelines](./CONTRIBUTING.md) for a detailed process on how to build your application as well as troubleshooting information.
 
-**Development Keys**: The `CLIENT_ID` and `CLIENT_SECRET` in `api/index.js` are for development purposes and do not represent the actual application keys. Feel free to use them or use a new set of keys by creating an [OAuth application](https://github.com/settings/applications/new) of your own. Set the "Authorization callback URL" to `gitpoint://welcome`.
+## Backers
 
-## Backers [![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#backers)
+We can delete this if we don't want to use it.
 
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/git-point#backer)]
+## Sponsors
 
-<a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
-
-## Sponsors [![Sponsors on Open Collective](https://opencollective.com/git-point/sponsors/badge.svg)](#sponsors)
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/git-point#sponsor)]
-
-<a href="https://opencollective.com/git-point/sponsor/0/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/1/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/2/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/3/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/4/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/5/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/6/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/7/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/8/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/git-point/sponsor/9/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/9/avatar.svg"></a>
+We can delete this if we don't want to use it.
 
 ## Acknowledgments
 
-Thanks to [JetBrains](https://www.jetbrains.com) for supporting us with a [free Open Source License](https://www.jetbrains.com/buy/opensource).
+- Thanks to Sue Shef for her support and financial backing!
+- Made with [Edamam](https://edamam.com)
 
