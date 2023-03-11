@@ -17,8 +17,8 @@
 - [Feedback](#feedback)
 - [Contributors](#contributors)
 - [Build Process](#build-process)
-- [Backers](#backers-)
-- [Sponsors](#sponsors-)
+- [Backers](#backers)
+- [Sponsors](#sponsors)
 - [Acknowledgments](#acknowledgments)
 
 
@@ -36,6 +36,8 @@ Here are some of the features of Get Cookin:
 
 ### Save Recipes
 
+A user is able to save recipes by clicking on the "Save Recipe" button on any recipe card.  The saved recipes are stored on the "Saved Recipes" page.  Clicking on any of the saved recipes will send the user to the specific recipe website.
+
 ### Authorization
 
 ### Back End
@@ -48,11 +50,19 @@ We can delete this if we don't want to use it.
 
 Please visit our contributors pages on GitHub:
 
+[Nathan Love](https://github.com/nathanKimbleLove) <br>
+[Andrew Sittner](https://github.com/andrewsittner) <br>
+[Deirdre Loyall](https://github.com/dirtOval) <br>
+[Robin Kim](https://github.com/robin1004) <br>
+[Bryce Anderson](https://github.com/abanderson3) <br>
+[Sajana Balal](https://github.com/SajanaB) <br>
+[Paul Koski](https://github.com/pwkoski)
+
 
 ## Build Process
 
 - Clone or download the repo
-- Install a PostgreSQL and create a database
+- Install PostgreSQL and create a database to store user and recipe info
 - Navigate to the database folder in the repo and run `psql -U yourUsername -d yourDatabase -f "schema.sql"`
 - Sign up for Food Database and Recipe Search APIs
 - Create a .env file in the root directory of the repo and input the following:
@@ -67,8 +77,8 @@ RECIPE_KEY"`
 FOOD_KEY'`
 - `npm install` to install dependencies
 - `npm run build` to build the front end
-- `npm run serve' to start the server
-- Navigate to `localhost:3000' to start the app!
+- `npm run serve` to start the server and connect to the database
+- Navigate to `http://localhost:3000` to start the app!
 
 
 ## Backers
