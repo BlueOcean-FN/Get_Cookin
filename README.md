@@ -31,6 +31,9 @@ The goal of Get Cookin is to make delicious recipes available for everyone!  The
 
 ### Built With
 
+- Authorization: 
+    ![jwt](https://user-images.githubusercontent.com/118213399/224507555-0bebe3f9-65f6-436a-ab40-b6661d60e545.svg)
+     **JSON Web Tokens**
 - Front End:
 
     <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
@@ -42,6 +45,8 @@ The goal of Get Cookin is to make delicious recipes available for everyone!  The
    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png" width=30px height=30px> **Express**
 
    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" width=30px height=30px> **PostgreSQL**
+   
+   
 
 
 ## Features
@@ -63,6 +68,8 @@ The profile page shows the account information like name, email and password, di
 A user is able to save recipes by clicking on the "Save Recipe" button on any recipe card.  The saved recipes are stored on the "Saved Recipes" page.  Clicking on any of the saved recipes will send the user to the specific recipe website.
 
 ### Authorization
+
+
 
 ### Back End
 
