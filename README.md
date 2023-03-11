@@ -3,7 +3,8 @@
 <h3 align="center"> A recipe-finding web app designed for mobile phones </h3> <br>
 
 ![login](https://user-images.githubusercontent.com/36552486/224495383-f33e9a99-f736-4de9-85b6-5392f2d551f6.gif)
-![general](https://user-images.githubusercontent.com/36552486/224495370-47756241-c529-4052-a851-57248b541065.gif)
+![search](https://user-images.githubusercontent.com/36552486/224505807-47540f89-0e3e-475b-97b1-143f8e5e58bc.gif)
+
 
 ## Table of Contents
 
