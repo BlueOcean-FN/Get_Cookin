@@ -32,8 +32,10 @@ The goal of Get Cookin is to make delicious recipes available for everyone!  The
 ### Built With
 
 - Authorization: 
+
     <img src="https://user-images.githubusercontent.com/118213399/224507614-d14f07e1-3eaf-407f-afcc-ed4e86c7a573.png" width=30px height=30px>
     **JSON Web Tokens**
+    
 - Front End:
 
     <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
