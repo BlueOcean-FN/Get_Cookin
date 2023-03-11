@@ -1,3 +1,4 @@
+
 <h1 align="center"> Get Cookin </h1>
 <h3 align="center"> A recipe-finding web app designed for mobile phones </h3> <br>
 
@@ -49,6 +50,8 @@ Here are some of the features of Get Cookin:
 ### Recipe Search
 
 ### Profile Page
+
+The profile page shows the account information like name, email and password, dietary restriction information as well as list of recently visited recipes. The dietary restriction section has a save to profile button which saves any restriction choices made in the checkbox format. There is also a add more restrictions section as well which gives user option to add more restriction.
 
 ### Save Recipes
 
@@ -107,4 +110,3 @@ We can delete this if we don't want to use it.
 
 - Thanks to Sue Shef for her support and financial backing!
 - Made with [Edamam](https://edamam.com)
-
