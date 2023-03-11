@@ -4,7 +4,6 @@
 
 ![login](https://user-images.githubusercontent.com/36552486/224495383-f33e9a99-f736-4de9-85b6-5392f2d551f6.gif)
 ![search](https://user-images.githubusercontent.com/36552486/224505807-47540f89-0e3e-475b-97b1-143f8e5e58bc.gif)
-![saved](https://user-images.githubusercontent.com/36552486/224505994-cbc32c8f-260a-493e-b70d-dec732efe86c.gif)
 
 
 ## Table of Contents
@@ -50,6 +49,10 @@ The goal of Get Cookin is to make delicious recipes available for everyone!  The
 Here are some of the features of Get Cookin:
 
 ### Recipe Search
+
+The user is able to search by ingredient and exclude search results by filter. As the user types into the search input or filter input, a useEffect is activated which kicks off a 300ms setTimeout. This setTimeout debounces every time a key is typed, and it if it hits zero the useEffect makes an axios request to the server, which in turn makes an axios request to the Edamam Food API. The resulting response is used to populate the auto-complete functionality on the ingredient search and filter inputs.
+
+When the user hits the 'Search' button, an axios request is sent to the server, which in turn requests the Edamam Recipe API using the search and filter parameters sent along. Before this happens, the user preferences are added to the request as query params. The resulting response is used to populate the recipe card list on the search view.
 
 ### Profile Page
 
