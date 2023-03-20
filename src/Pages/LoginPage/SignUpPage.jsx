@@ -36,12 +36,10 @@ const SignUp = ({ setLoggedIn }) => {
     e.preventDefault();
     axios.post('http://localhost:3000/signup-user', signUpCredentials)
     .then(res => {
-      console.log(res.data);
       localStorage.setItem('token', `Bearer ${res.data.token}`);
       navigate('/search')
     })
     .catch(error => {
-      console.log(error.response.status);
       if (error.response.status === 500) {
         setError('Fill out all fields!');
       } else if (error.response.status === 400) {

@@ -17,18 +17,3 @@ const db = client.connect()
   console.log(`connected to db ${process.env.DB_NAME}`);
 })
 module.exports = client;
-
-// const pool = new Pool(poolConfig)
-
-// const db = pool.connect((err, client, release) => {
-//   if (err) {
-//     return console.error('Error acquiring client', err.stack)
-//   } else {
-//     console.log('client connected to db!');
-//     console.log(client);
-//     module.exports = client;
-//   }
-
-// })
-
-// module.exports = db;

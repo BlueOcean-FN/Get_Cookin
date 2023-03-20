@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const MoreDietaryRes = ({ingredients, addRestriction, removeRestriction, addAutocompleteRestriction}) => {
   const [moreRestriction, setMoreRestriction] = useState('');
-  // const [ingredients, setIngredients] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [text, setText] = useState('');
 
@@ -17,22 +16,9 @@ const MoreDietaryRes = ({ingredients, addRestriction, removeRestriction, addAuto
     });
   }
 
-  // const addRestrictions = (e) => {
-  //   e.preventDefault();
-  //   setIngredients([...ingredients, e.target[0].value]);
-  //   setMoreRestriction('');
-  // }
-
-  // const removeRestrictions = (e) => {
-  //   setIngredients(ingredients.filter(ingredient => {
-  //     return ingredient !== e.target.textContent;
-  //   }))
-  // }
-
   const suggestHandler = (text) =>{
     setMoreRestriction(text);
     setSuggestions([]);
-    // setIngredients([...ingredients, text]);
     addAutocompleteRestriction(text);
     setMoreRestriction('');
   }

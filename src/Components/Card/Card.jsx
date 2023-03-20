@@ -21,25 +21,22 @@ const Card = ({ data }) => {
 
   const handleSave = function() {
     if (!saved) {
-      setSaved(true) 
-    axios.post('http://localhost:3000/savedPage',
-    {
-      email: localStorage.getItem('email'),
-      type: 'saved',
-      name: data.label,
-      url: data.url,
-      image_url: data.image
-    },
-    {
-      headers: {authorization: localStorage.getItem('token')},
-    })
-    .then(function (response) {
-    })
-    .catch(function (error) {
-      console.log('Axios error in Card handleSave function', error);
-    })
-  } else {
-    console.log('Recipe Already Saved')
+      setSaved(true)
+      axios.post('http://localhost:3000/savedPage',
+      {
+        email: localStorage.getItem('email'),
+        type: 'saved',
+        name: data.label,
+        url: data.url,
+        image_url: data.image
+      },
+      {
+        headers: {authorization: localStorage.getItem('token')},
+      })
+      .then(function (response) {
+      })
+      .catch(function (error) {
+      })
   }
   }
 
@@ -96,7 +93,7 @@ const Card = ({ data }) => {
         </ul>
       </div>
       <div className="ExpansionBlock">
-      
+
       <button className="show-recipe"onClick={() => window.open(data.url, '_blank', 'noopener,noreferrer')} >Show Recipe</button>
       <FaAngleUp className="compress" size={30} onClick={() => { setExpanded(false) }} />
       {saved
